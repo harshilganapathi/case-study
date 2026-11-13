@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-13",
+  "tests_passed": 79,
+  "full_export_checks_passed": 35,
+  "browser_checks_passed": 44,
+  "captured_states": 42,
+  "targeted_checks": [
+    "final_numeric_calibration_chart_and_stock_scores",
+    "holdout_csv_matches_1753_exported_predictions_across_354_parts",
+    "financial_cards_at_1024_pixels"
+  ],
+  "scored_stock_groups": 2957,
+  "scored_stock_units": 105643,
+  "heldout_prediction_records": 1753,
+  "heldout_part_numbers": 354,
+  "part_overlap": 0,
+  "page_errors": [],
+  "http_errors": [],
+  "server_tracebacks": 0,
+  "source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3",
+  "passed": true
+}

@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from src import audit, economics, metrics, timing
+from src import audit, economics, metrics, scrap_model, timing
 from src.decision_support import build_queue, COLUMNS as QUEUE_COLUMNS
 from src.presentation import category, csv_bytes, invoice_date, invoice_window, select_records
 
@@ -34,6 +34,11 @@ def load_data(raw, filename, rule_hash):
     return records, summary, quarantine
 
 
+@st.cache_data(show_spinner='Fitting and checking the scrap baseline…')
+def load_scrap_baseline(records, rule_hash):
+    return scrap_model.calculate(records)
+
+
 def percent(value):
     return f'{Decimal(str(value))*100:,.2f}%' if value is not None else 'Unavailable'
 
@@ -48,6 +53,7 @@ def days(value):
 
 def column_label(column):
     return {'part': 'Part number', 'QTY': 'Quantity', 'sales': 'Sales amount',
+            'roc_auc': 'ROC AUC', 'brier_score': 'Brier score', 'log_loss': 'Log loss',
             'paired_median_observed_days': 'Median overhaul-to-sale days',
             'paired_median_expected_days': 'Median expected days'}.get(
                 column, column.replace('_', ' ').replace('--', ' ').title())
@@ -59,7 +65,8 @@ def frame(rows):
     numeric = {'qty','units','QTY','sales','repair_cost','repair_contribution','contribution',
                'repair_margin','margin','scrap_share','zero_cost_sale_share','above_expected_share',
                'expected_days','difference_days','median_observed_days','paired_median_observed_days',
-               'paired_median_expected_days','median_paired_difference_days','rank'}
+               'paired_median_expected_days','median_paired_difference_days','rank',
+               'baseline_scrap_score','mean_score','observed_scrap_share'}
     for column in df.columns:
         if column in numeric:
             df[column] = pd.to_numeric(df[column], errors='coerce')
@@ -75,7 +82,8 @@ def table(rows, key, columns=None):
     configs.update({k: st.column_config.NumberColumn(column_label(k), format='%.2f')
                     for k in ('sales','repair_cost','contribution','repair_contribution')})
     configs.update({k: st.column_config.NumberColumn(k.replace('_',' ').title(), format='percent')
-                    for k in ('margin','repair_margin','scrap_share','above_expected_share','zero_cost_sale_share')})
+                    for k in ('margin','repair_margin','scrap_share','above_expected_share','zero_cost_sale_share',
+                              'baseline_scrap_score','mean_score','observed_scrap_share')})
     if columns:
         df = df[[c for c in columns if c in df]]
     st.dataframe(df, hide_index=True, width='stretch', column_config=configs)
@@ -122,7 +130,7 @@ def dated(records, key):
 
 st.sidebar.title('Parts inventory')
 view = st.sidebar.radio('View', ['Overview', 'Scrap', 'Repair economics', 'Inventory & timing',
-                                  'Review queue', 'Data quality'], key='view')
+                                  'Review queue', 'Scrap-risk baseline', 'Data quality'], key='view')
 uploaded = st.sidebar.file_uploader('Use another export', type=['csv'])
 try:
     source = Path(os.environ.get('PARTS_DATA_PATH', str(ROOT/'Case_Study_Dataset.csv')))
@@ -345,6 +353,82 @@ elif view == 'Review queue':
               ['PART','QTY','WHSE','Condition','SN','TAG_NO','audit_flags','source_records'])
         with st.expander('All historical records for this part'):
             table([r for r in records if r['PART'] == part and r['Type'] != 'Inventory'], 'part_history')
+
+elif view == 'Scrap-risk baseline':
+    baseline = load_scrap_baseline(records, rule_hash)
+    validation = baseline['validation']
+    st.write('Experimental category model for recorded scrap versus sale outcomes. It uses Module '
+             'and SubType, with sparse categories pulled toward broader history.')
+    st.info('Scores describe patterns among completed outcome records. They are not validated '
+            'future scrap probabilities or instructions to scrap a part. Each record counts once; '
+            'this differs from the unit-weighted scrap share.')
+    cols = st.columns(3)
+    cols[0].metric('Labeled outcome records', f"{baseline['history_records']:,}")
+    cols[1].metric('Held-out part numbers', f"{validation['test_part_numbers']:,}")
+    cols[2].metric('Part overlap in evaluation', str(validation['overlapping_parts']))
+    st.caption('Model fitting and evaluation use the full deduplicated history. Sidebar and stock '
+               'filters select stock to score; they do not change the training population.')
+    if not baseline['available']:
+        st.info(baseline['reason'])
+    else:
+        st.subheader('Held-out performance')
+        if validation['available']:
+            table(validation['comparison'], 'scrap_baseline_validation')
+            model_brier, constant_brier = [r['brier_score'] for r in validation['comparison']]
+            st.caption('Lower Brier score and log loss are better; higher ROC AUC is better. '
+                       'The constant comparator uses the training scrap-record rate for every test row. '
+                       f"Train: {validation['train_records']:,} records; test: {validation['test_records']:,}. "
+                       'All records of a part stay on one side of the split.')
+            if model_brier < constant_brier:
+                st.write(f'The category baseline reduces held-out Brier error by '
+                         f'{(1-model_brier/constant_brier)*100:.1f}% versus the constant score.')
+            else:
+                st.write('The category baseline does not beat the constant score on held-out Brier error.')
+            calibration = pd.DataFrame([{'Mean score (%)':r['mean_score']*100,
+                'Observed scrap records (%)':r['observed_scrap_share']*100,
+                'Reference (%)':r['mean_score']*100}
+                for r in validation['calibration']])
+            st.line_chart(calibration, x='Mean score (%)',
+                          y=['Observed scrap records (%)','Reference (%)'],
+                          x_label='Mean held-out score (%)', y_label='Scrapped outcome records (%)')
+            st.caption('Calibration check on held-out parts; the reference line is score = observed share. '
+                       'Each band can contain correlated records; this is not evidence of future calibration.')
+        else:
+            st.info(validation['reason'])
+        st.subheader('Stock scores')
+        stock = [r for r in selected if r['Type'] == 'Inventory']
+        cols = st.columns(2)
+        warehouses = cols[0].multiselect('Stock warehouse', sorted({category(r['WHSE']) for r in stock}),
+                                         key='baseline_warehouses')
+        conditions = cols[1].multiselect('Stock condition', sorted({category(r['Condition']) for r in stock}),
+                                         key='baseline_conditions')
+        stock = select_records(stock, warehouses=warehouses, conditions=conditions)
+        minimum = st.number_input('Minimum baseline score (%)', 0, 100, 0, key='baseline_min_score')
+        scores = scrap_model.score_inventory(stock, baseline['model'])
+        shown = [r for r in scores if r['baseline_scrap_score'] >= minimum/100]
+        st.caption('Stock scores refit the baseline on all eligible history after evaluation. '
+                   'Rows are part/module/subtype groups; parts with inconsistent categories may have '
+                   'multiple rows. Parts in the same categories share a score. Counts show category '
+                   'history, not independent events for that part.')
+        if shown:
+            table(shown, 'scrap_baseline_stock_scores', scrap_model.SCORE_COLUMNS)
+        else:
+            st.info('No stock groups match the current filters and score threshold.')
+        with st.expander('Model logic and limits'):
+            st.write('Module score = (scrap records + 20 × overall rate) / (records + 20). '
+                     'Module/subtype score uses the same formula with its module score as the prior. '
+                     'The fixed strength of 20 is an assumption. Unseen subtype falls back to module; '
+                     'unseen module falls back to the overall rate.')
+            st.write('Only Module and SubType are predictors. Condition, quantity, warehouse, dates, '
+                     'costs, prices and identifiers are excluded. Type supplies the label; part number '
+                     'only keeps the deterministic 80/20 evaluation groups separate.')
+            st.write('Scrap dates and lifecycle cohorts are missing, so this is not a temporal test '
+                     'or a forecast over a stated horizon. Stock condition, lot mix and business '
+                     'decisions may differ from completed outcomes. No expected scrap units are inferred.')
+            table(validation['calibration'], 'scrap_baseline_calibration')
+            table(validation['predictions'], 'scrap_baseline_holdout_predictions')
+    with st.expander('Excluded outcome records'):
+        table(baseline['excluded_history'], 'scrap_baseline_exclusions')
 
 elif view == 'Data quality':
     st.write('File-wide audit before dashboard filters. The raw export is never edited.')

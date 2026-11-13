@@ -11,7 +11,7 @@ from pathlib import Path
 
 from .audit import run as audit, write_json
 from .ingest import STATUSES, number
-from . import economics, timing
+from . import economics, scrap_model, timing
 from .decision_support import build_queue, COLUMNS as QUEUE_COLUMNS
 
 DIMENSIONS = {'module': 'Module', 'subtype': 'SubType', 'warehouse': 'WHSE',
@@ -190,6 +190,7 @@ def run(input_path, output_dir, audit_dir, weak_margin=Decimal('.20'), max_expec
     repair = economics.calculate(records, weak_margin)
     intervals = timing.calculate(records, max_expected_days)
     queue = build_queue(records, weak_margin=weak_margin)
+    baseline = scrap_model.calculate(records)
     intervals['quarantined_cases'] = audit_summary['accounting']['quarantined_cases']
     repair['quarantined_cases'] = audit_summary['accounting']['quarantined_cases']
     if not repair['excluded_records']:
@@ -211,13 +212,26 @@ def run(input_path, output_dir, audit_dir, weak_margin=Decimal('.20'), max_expec
     repair['calculation_input_sha256'] = result['calculation_input_sha256']
     intervals['source_sha256'] = result['source_sha256']
     intervals['calculation_input_sha256'] = result['calculation_input_sha256']
+    baseline['source_sha256'] = result['source_sha256']
+    baseline['calculation_input_sha256'] = result['calculation_input_sha256']
     result['timing'] = intervals['summary']
     result['review_queue'] = {status: sum(r['status'] == status for r in queue)
                               for status in ('Review', 'Insufficient evidence', 'No rule triggered')}
     result['economics'] = {key: repair[key] for key in ('positive_sales', 'credits', 'signed_total',
                                                      'excluded_records', 'weak_margin_threshold')}
+    result['scrap_baseline'] = {key: baseline[key] for key in ('available', 'history_records',
+                                                            'outcome_parts', 'features')}
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_dir/'metrics.json', result)
+    write_json(output_dir/'scrap_model.json', baseline)
+    (output_dir/'SCRAP_MODEL_EXPLAINED.md').write_text(scrap_model.report(baseline), encoding='utf-8')
+    write_csv(output_dir/'scrap_model_stock_scores.csv', baseline['inventory_scores'], scrap_model.SCORE_COLUMNS)
+    write_csv(output_dir/'scrap_model_holdout_predictions.csv', baseline['validation']['predictions'],
+              scrap_model.PREDICTION_COLUMNS)
+    write_csv(output_dir/'scrap_model_calibration.csv', baseline['validation']['calibration'],
+              ['score_band', 'records', 'mean_score', 'observed_scrap_share'])
+    write_csv(output_dir/'scrap_model_exclusions.csv', baseline['excluded_history'],
+              ['source_records', 'part', 'type', 'qty', 'reason'])
     write_csv(output_dir/'review_queue.csv', queue, QUEUE_COLUMNS)
     write_json(output_dir/'review_queue.json', {
         'source_sha256': result['source_sha256'],

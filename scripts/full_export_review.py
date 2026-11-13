@@ -5,12 +5,15 @@ import sys,time
 root=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(root))
 app=AppTest.from_file(str(root/'app.py'),default_timeout=60).run()
+passed_checks=0
 def check(label):
+ global passed_checks
  errors=[e.message for e in app.exception]
  if errors: raise AssertionError((label,errors))
  print(label,'OK',flush=True)
+ passed_checks+=1
 check('Overview full export')
-for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Data quality']:
+for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Scrap-risk baseline','Data quality']:
  app.sidebar.radio[0].set_value(view).run();check(view)
  if view=='Scrap':
   for group in ['subtype','module_subtype','module']:
@@ -28,7 +31,15 @@ for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Dat
  if view=='Review queue':
   app.multiselect(key='queue_statuses').set_value(['Insufficient evidence']).run();check('Queue insufficient evidence')
   app.multiselect(key='queue_statuses').set_value([]).run();check('Empty queue status filter')
+ if view=='Scrap-risk baseline':
+  assert app.metric[0].value=='11,769'
+  assert app.metric[2].value=='0'
+  app.number_input(key='baseline_min_score').set_value(100).run();check('Empty baseline score threshold')
+  assert any('No stock groups match' in item.value for item in app.info)
+  app.number_input(key='baseline_min_score').set_value(0).run()
+  app.multiselect(key='baseline_warehouses').set_value(['MDT']).run();check('Baseline warehouse filter')
+  assert app.metric[0].value=='11,769'
 app.sidebar.text_input[0].set_value('NO-MATCH-EXAMPLE-987654321').run()
-for view in ['Overview','Scrap','Repair economics','Inventory & timing','Review queue','Data quality']:
+for view in ['Overview','Scrap','Repair economics','Inventory & timing','Review queue','Scrap-risk baseline','Data quality']:
  app.sidebar.radio[0].set_value(view).run();check('Empty '+view)
-print('FULL EXPORT CHECKS PASSED',flush=True)
+print(f'FULL EXPORT CHECKS PASSED ({passed_checks})',flush=True)

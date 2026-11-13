@@ -88,6 +88,15 @@ class CalculationTests(unittest.TestCase):
             self.assertEqual(Decimal(s['economics']['positive_sales']['contribution']), 300)
             self.assertEqual(s['timing']['observed_records'], 1)
             self.assertEqual(s['timing']['median_paired_difference_days'], '30')
+            baseline = json.loads((root/'metrics'/'scrap_model.json').read_text())
+            self.assertTrue(baseline['available'])
+            self.assertEqual(baseline['history_records'],2)
+            self.assertFalse(baseline['validation']['available'])
+            self.assertEqual(baseline['source_sha256'],s['source_sha256'])
+            with (root/'metrics'/'scrap_model_stock_scores.csv').open() as f:
+                stock_scores = list(csv.DictReader(f))
+            self.assertEqual(len(stock_scores),1)
+            self.assertEqual(stock_scores[0]['on_hand_units'],'10')
             with (root/'metrics'/'economics_positive_sales.csv').open() as f:
                 self.assertEqual(len(list(csv.DictReader(f))), 1)
             first_hash = s['source_sha256']
@@ -102,6 +111,8 @@ class CalculationTests(unittest.TestCase):
             self.assertNotEqual(s['source_sha256'], first_hash)
             self.assertEqual(Decimal(s['scrap_share']), Decimal('.1'))
             self.assertEqual(s['inventory_units'], 0)
+            baseline = json.loads((root/'metrics'/'scrap_model.json').read_text())
+            self.assertEqual(baseline['inventory_scores'],[])
             self.assertEqual(s['economics']['excluded_records'], 1)
             self.assertEqual(s['economics']['positive_sales']['records'], 0)
             self.assertEqual(s['timing']['observed_records'], 0)

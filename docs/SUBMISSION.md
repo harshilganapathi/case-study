@@ -30,9 +30,11 @@ Show reasons, denominators, cost coverage, locations, and history. Insufficient 
 
 ## Verification and limits
 
-The checked submission passed **65 tests**, **31 full-data behavioral checks**, and a Chrome review covering all six views, filters, and empty states. Additional browser regressions reconcile downloads and zero-revenue losses. Tests/full-data checks were rerun from the extracted ZIP. See [validation scope and evidence](../reports/VALIDATION.md).
+**Optional scrap baseline:** a smoothed Module/SubType model learns recorded scrap-versus-sale outcomes, one deduplicated record per observation. Condition, prices, costs, dates, quantity, and identifiers are excluded as predictors. A deterministic 80/20 split keeps whole part numbers apart. On 1,753 held-out records across 354 parts, Brier score is 0.1415 versus a constant comparator's 0.2611; ROC AUC is 0.8608. The app shows calibration bins and refits on full history for stock scoring. CSVs include scores and holdout predictions. See the [model report](../reports/metrics/SCRAP_MODEL_EXPLAINED.md).
 
-Receipt/snapshot/scrap dates, reliable lifecycle identifiers, acquisition costs, future repair quotes, and recovery values are missing. No stock-aging calculation, validated scrap prediction, or automatic repair-or-scrap recommendation is claimed. Next steps: confirm definitions and duplicate authenticity; validate queue thresholds/ordering with a manager; improve history coverage; lock transitive dependencies; test more environments. Team deployment needs authenticated internal hosting, controlled uploads, and retained audit versions.
+The checked submission passed **79 tests**, **35 full-data behavioral checks**, and a Chrome review covering all seven views, filters, and empty states. Additional browser regressions reconcile downloads and zero-revenue losses. See [validation scope and evidence](../reports/VALIDATION.md).
+
+Receipt/snapshot/scrap dates, reliable lifecycle identifiers, acquisition costs, future repair quotes, and recovery values are missing. The model estimates completed-outcome record patterns; no time horizon or validated future scrap probability is claimed. No stock-aging calculation or automatic repair-or-scrap recommendation is made. Next steps: confirm definitions and duplicates; validate queue rules and the model prospectively; improve coverage; lock dependencies; test more environments. Team deployment needs authentication, controlled uploads, and retained audit versions.
 
 ## AI use
 

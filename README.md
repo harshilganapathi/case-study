@@ -1,6 +1,6 @@
 # Parts Inventory Case Study
 
-This is my Streamlit app for the aviation parts case study. It covers stock on hand, scrap outcomes, repair contribution, and how long sold parts took to move from overhaul to invoice. It also includes a queue of stocked parts to review.
+This is my Streamlit app for the aviation parts case study. It covers stock on hand, scrap outcomes, repair contribution, and how long sold parts took to move from overhaul to invoice. It also includes a review queue and an experimental scrap-risk baseline.
 
 The biggest issue was the export itself: some records were split across two rows, and others were duplicated. I kept the raw file unchanged and made the cleaning repeatable, with source references for the records that were recovered or excluded.
 
@@ -92,6 +92,14 @@ The order is simple: triggered-rule count, then stock quantity, then part number
 
 Stock filters select the locations of interest; the queue uses full history for those part numbers across conditions and locations, without a date window. A flag is a reason to inspect the part and its history before making a repair or scrap decision.
 
+## Scrap-risk baseline
+
+I added a simple category model using Module and SubType. It learns from sold and scrapped records, pulling sparse groups toward broader history. Condition, dates, costs, prices, quantities, and identifiers are excluded from the predictors to avoid leaking the recorded outcome.
+
+The check holds out **354 whole part numbers**: none of their records enter training. On the 1,753 held-out records, the model's Brier score is **0.1415**, versus **0.2611** for a constant training-rate score; lower is better. ROC AUC is **0.8608**. The app shows the comparison and calibration bins, then refits on all eligible history to score stock. Parts in the same categories share a score.
+
+Each deduplicated outcome record counts once, so this differs from the unit-weighted scrap share. It is a baseline for historical outcome patterns. Missing scrap dates and lifecycle cohorts prevent a temporal test or a future-risk claim. The [model report](reports/metrics/SCRAP_MODEL_EXPLAINED.md) explains the formulas, exclusions, split, and limits. Stock scores, held-out predictions, and calibration tables have CSV exports.
+
 ## Screenshots
 
 All captures below use the supplied export. The app has category/search filters and CSV downloads; invoice-date filters apply to repair and timing. Warehouse and condition filters apply to stock.
@@ -138,6 +146,15 @@ Editable review rules, part-level evidence, and the cleaning summary.
 
 Additional captures: [mobile overview](reports/screenshots/overview-mobile.png) and [narrower desktop layout](reports/screenshots/repair-narrow-window.png). Wide tables scroll horizontally.
 
+<details>
+<summary>Scrap-risk baseline</summary>
+
+Held-out performance, calibration, and stock scores with supporting category history.
+
+![Scrap-risk baseline](reports/screenshots/scrap-risk-baseline.png)
+
+</details>
+
 ## Checks and code
 
 After installation:
@@ -153,7 +170,7 @@ After installation:
 .venv/bin/python scripts/full_export_review.py
 ```
 
-The checked version passed **65 tests** and **31 full-export checks**. The Chrome review covered all six views, filters, and empty states. Additional browser checks reconciled downloaded totals and tested zero-revenue losses. See the [validation report](reports/VALIDATION.md) for scope, evidence, and browser commands.
+The checked version passed **79 tests** and **35 full-export checks**. The Chrome review covers all seven views, filters, and empty states. Additional browser checks reconcile downloaded totals and test zero-revenue losses. See the [validation report](reports/VALIDATION.md) for scope, evidence, and browser commands.
 
 `app.py` handles the UI. Under `src/`, ingestion and audit code prepare the records; separate modules calculate quantities, economics, timing, and review rules. Quantity aggregation uses SQLite. Financial calculations use Decimal, with float conversion limited to display.
 
@@ -161,7 +178,7 @@ The checked version passed **65 tests** and **31 full-export checks**. The Chrom
 
 First, confirm the field definitions, duplicate policy, zero-cost meaning, and currency with the business. Then review the queue thresholds and ordering with an inventory manager.
 
-Receipt/snapshot dates, reliable lifecycle IDs, acquisition costs, future repair quotes, and scrap recovery values would make the app more useful. Without them, I left out current stock aging, a predictive scrap model, and automatic repair-or-scrap recommendations.
+Receipt/snapshot dates, reliable lifecycle IDs, acquisition costs, future repair quotes, and scrap recovery values would make the app more useful. Without them, I left out current stock aging and automatic repair-or-scrap recommendations. The experimental scrap baseline needs prospective validation before operational use.
 
 For a team deployment, I would add authentication, controlled uploads, and retained source/audit versions. I would also lock transitive dependencies and test more Python/OS combinations. The current launcher was checked on macOS; Windows instructions are provided but were not validated.
 

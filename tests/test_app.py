@@ -46,14 +46,14 @@ class AppTests(unittest.TestCase):
     def test_every_view_renders_and_overview_is_deduplicated(self):
         self.assertFalse(self.app.exception)
         self.assertEqual(self.app.metric[0].value,'15')
-        for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Data quality']:
+        for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Scrap-risk baseline','Data quality']:
             self.app.sidebar.radio[0].set_value(view).run()
             self.assertFalse(self.app.exception,view)
 
     def test_search_filters_and_empty_states_on_every_view(self):
         self.app.sidebar.text_input[0].set_value('missing-part').run()
         self.assertEqual(self.app.metric[0].value,'0')
-        for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Data quality']:
+        for view in ['Scrap','Repair economics','Inventory & timing','Review queue','Scrap-risk baseline','Data quality']:
             self.app.sidebar.radio[0].set_value(view).run()
             self.assertFalse(self.app.exception,view)
 
@@ -121,3 +121,34 @@ class AppTests(unittest.TestCase):
                 self.assertEqual(self.app.metric[0].value, '1')
                 self.assertTrue(any(f'contribution -{count*10:.2f} across {count} eligible sale records'
                                     in info.value for info in self.app.info))
+
+    def test_scrap_baseline_filters_select_stock_without_retraining_history(self):
+        self.app.sidebar.radio[0].set_value('Scrap-risk baseline').run()
+        self.assertFalse(self.app.exception)
+        self.assertEqual(self.app.metric[0].value,'6')
+        self.assertTrue(any('Evaluation needs separate part groups' in item.value for item in self.app.info))
+        self.app.sidebar.multiselect[0].set_value(['FAN']).run()
+        self.assertFalse(self.app.exception)
+        self.assertEqual(self.app.metric[0].value,'6')
+        scores = self.app.dataframe[0].value
+        self.assertEqual(list(scores['part']),['B'])
+        self.assertEqual(list(scores['on_hand_units']),[5])
+        self.app.number_input(key='baseline_min_score').set_value(100).run()
+        self.assertTrue(any('No stock groups match' in item.value for item in self.app.info))
+        self.assertFalse(self.app.exception)
+
+    def test_scrap_baseline_handles_missing_and_single_class_outcomes(self):
+        path = Path(self.temp.name)/'fixture.csv'
+        with path.open(newline='') as f:
+            rows = list(csv.DictReader(f))
+        stock = [r for r in rows if r['Type']=='Inventory']
+        for outcome in (None,'Invoiced','Scrapped'):
+            with self.subTest(outcome=outcome):
+                selected = stock + [r for r in rows if r['Type']==outcome]
+                with path.open('w',newline='') as f:
+                    writer=csv.DictWriter(f,fieldnames=FIELDS)
+                    writer.writeheader();writer.writerows(selected)
+                self.app.sidebar.radio[0].set_value('Scrap-risk baseline').run()
+                self.assertFalse(self.app.exception)
+                self.assertTrue(any('Need at least one eligible sold and one scrapped record'
+                                    in item.value for item in self.app.info))

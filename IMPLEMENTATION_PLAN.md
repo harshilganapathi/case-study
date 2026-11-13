@@ -13,7 +13,8 @@ The planned application is implemented locally. The final scope is Streamlit, re
 | Inventory | Positive stock by module/subtype/warehouse/condition, locations and quantity exceptions |
 | Sell-through comparison | src/timing.py; overhaul-to-invoice intervals versus supplied expected days, paired comparisons and coverage |
 | Decision support | src/decision_support.py; independently aggregated stock/history, review reasons, supporting counts and configurable thresholds |
-| Local application | app.py; six views, scope-aware filters, file upload, content-keyed cache, charts, detail and CSV exports |
+| Optional scrap baseline | src/scrap_model.py; smoothed Module/SubType outcome-record classifier, part-disjoint holdout, constant comparator, calibration and stock scores |
+| Local application | app.py; seven views, scope-aware filters, file upload, content-keyed cache, charts, detail and CSV exports |
 | Single-command launch | run.sh; creates a local virtual environment, installs requirements.txt and launches Streamlit |
 | Submission | README.md, tests/, generated reports and scripts/package_submission.py |
 
@@ -26,6 +27,7 @@ The planned application is implemented locally. The final scope is Streamlit, re
 - Scrap share uses scrapped plus positive sold units; inventory and returns are outside the denominator.
 - Review thresholds are initial assumptions: margin below 20% or zero-revenue negative contribution with five eligible sale records, or scrap share at least 50% with ten disposed units. They are editable in the app.
 - Timing expectations above 3,650 days are excluded only from paired comparisons by default. Long observed intervals stay flagged and included.
+- The scrap baseline weights completed outcome records equally and uses only Module/SubType. It holds out whole part numbers, then separately refits on full history for stock scores. Scores are experimental historical associations, without a validated future time horizon.
 
 ## App workflow
 

@@ -5,7 +5,7 @@ import json
 import tempfile
 from pathlib import Path
 
-VIEWS = ['Overview','Scrap','Repair economics','Inventory & timing','Review queue','Data quality']
+VIEWS = ['Overview','Scrap','Repair economics','Inventory & timing','Review queue','Scrap-risk baseline','Data quality']
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -112,6 +112,25 @@ def run(url, output, headed=False):
             choose('Stock warehouse','MDT'); choose('Stock condition','R')
             shot('review-stock-filters')
             view('Data quality'); shot('data-quality')
+
+            view('Scrap-risk baseline'); shot('scrap-risk-baseline')
+            expect(page.get_by_test_id('stMetricValue').first).to_have_text('11,769')
+            with page.expect_download() as download:
+                page.get_by_role('button',name='Download this table',exact=True).nth(1).click()
+            score_path=output/'scrap_model_stock_scores.csv'
+            download.value.save_as(str(score_path))
+            with score_path.open(encoding='utf-8-sig') as f:
+                scores=list(csv.DictReader(f))
+            assert len(scores)==2957
+            assert sum(int(r['on_hand_units']) for r in scores)==105643
+            assert all(0 <= float(r['baseline_scrap_score']) <= 1 for r in scores)
+            evidence['baseline_scored_stock_groups']=len(scores)
+            evidence['checks'].append('baseline_csv_download')
+            choose('Stock warehouse','MDT'); shot('baseline-warehouse-filter')
+            expect(page.get_by_test_id('stMetricValue').first).to_have_text('11,769')
+            number('Minimum baseline score (%)',100)
+            expect(page.get_by_text('No stock groups match the current filters and score threshold.',exact=True)).to_be_visible()
+            shot('baseline-empty-score-threshold')
 
             # Stock-only filters are checked independently from history-based timing.
             view('Inventory & timing')

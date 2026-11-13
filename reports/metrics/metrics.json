@@ -18677,6 +18677,15 @@
     "Review": 123
   },
   "sale_records": 7220,
+  "scrap_baseline": {
+    "available": true,
+    "features": [
+      "Module",
+      "SubType"
+    ],
+    "history_records": 11769,
+    "outcome_parts": 1770
+  },
   "scrap_by": {
     "module": [
       {
