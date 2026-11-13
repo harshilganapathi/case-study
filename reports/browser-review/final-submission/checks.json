@@ -14,8 +14,8 @@
     "src/scrap_model.py",
     "src/timing.py"
   ],
-  "readme_sha256": "1307c3a203a8a74775e4f65eca2fae23fd8010f556a0208e0745c2f6ba7a1d4c",
-  "readme_words": 623,
+  "readme_sha256": "e8e0e3371eadaad0d747db1987cd4b770aad7f9d09be936f879189ddb5d66160",
+  "readme_words": 683,
   "tests_passed": 79,
   "full_export_checks_passed": 35,
   "browser_checks_passed": 44,
@@ -30,5 +30,9 @@
   "http_errors": [],
   "server_tracebacks": 0,
   "source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3",
-  "passed": true
+  "passed": true,
+  "readme_before_gallery_sha256": "1307c3a203a8a74775e4f65eca2fae23fd8010f556a0208e0745c2f6ba7a1d4c",
+  "documentation_updated_at_utc": "2026-11-13T12:28:22.543996+00:00",
+  "documentation_change": "Restored eight collapsed screenshot sections with ten images; application code unchanged.",
+  "gallery_links_checked": true
 }

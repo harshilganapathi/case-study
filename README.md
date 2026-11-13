@@ -23,7 +23,7 @@ Open **http://localhost:8501**. The first launch creates `.venv` and installs de
 - **Scrap-risk baseline:** category scores, held-out evaluation, calibration, and stock scoring.
 - **Data quality:** reconstruction, duplicate treatment, quarantine, and exclusions.
 
-Tables have CSV downloads. Category/search filters select the displayed population. Invoice-date filters apply to repair/timing; location/condition filters select stock. Queue and model history use the full deduplicated export for their stated scope. [Screenshots](docs/SCREENSHOTS.md).
+Tables have CSV downloads. Category/search filters select the displayed population. Invoice-date filters apply to repair/timing; location/condition filters select stock. Queue and model history use the full deduplicated export for their stated scope. [Screenshots](#screenshots).
 
 ## Definitions and assumptions
 
@@ -62,3 +62,67 @@ Supporting detail: [audit](reports/audit/AUDIT_REPORT.md), [quantities](reports/
 ## AI use
 
 I used Codex throughout the project. I drove the direction and made the final decisions.
+
+## Screenshots
+
+Click a view to expand its screenshot.
+
+<details>
+<summary>Overview</summary>
+
+![Overview](reports/screenshots/overview.png)
+
+</details>
+
+<details>
+<summary>Scrap</summary>
+
+![Scrap view](reports/screenshots/scrap.png)
+
+</details>
+
+<details>
+<summary>Repair economics</summary>
+
+![Repair economics](reports/screenshots/repair-economics.png)
+
+</details>
+
+<details>
+<summary>Inventory and timing</summary>
+
+![Inventory](reports/screenshots/inventory.png)
+
+![Overhaul-to-invoice timing](reports/screenshots/timing.png)
+
+</details>
+
+<details>
+<summary>Review queue</summary>
+
+![Review queue](reports/screenshots/review-queue.png)
+
+</details>
+
+<details>
+<summary>Scrap-risk baseline</summary>
+
+![Scrap-risk baseline](reports/screenshots/scrap-risk-baseline.png)
+
+</details>
+
+<details>
+<summary>Data quality</summary>
+
+![Data quality](reports/screenshots/data-quality.png)
+
+</details>
+
+<details>
+<summary>Smaller screens</summary>
+
+![Mobile overview](reports/screenshots/overview-mobile.png)
+
+![Narrow desktop financial cards](reports/screenshots/repair-narrow-window.png)
+
+</details>
