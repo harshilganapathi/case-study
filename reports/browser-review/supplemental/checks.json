@@ -1,0 +1,9 @@
+{
+  "weak_margin_zero_negative_records": 165,
+  "date_range": [
+    "2023-08-01",
+    "2023-08-29"
+  ],
+  "expected_sales": "9875968.42",
+  "passed": true
+}

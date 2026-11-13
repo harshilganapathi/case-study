@@ -1,0 +1,166 @@
+﻿source_records,module,subtype,part,qty,sales,repair_cost,contribution,margin,reported_zero_repair_cost,review_reason
+[4694],QEC / LRU,HVM,442369,1,6500,48950,-42450,-6.530769230769230769230769231,False,negative_repair_contribution
+[837],QEC / LRU,HVM,828300-5,1,1700,25450,-23750,-13.97058823529411764705882353,False,negative_repair_contribution
+[7200],QEC / LRU,HVM,329695-5,1,1500,20890,-19390,-12.92666666666666666666666667,False,negative_repair_contribution
+[4611],QEC / LRU,HVM,849589,1,1500,18987.33,-17487.33,-11.65822,False,negative_repair_contribution
+[7739],QEC / LRU,HVM,3031863-002,1,13500,29970.77,-16470.77,-1.220057037037037037037037037,False,negative_repair_contribution
+[2145],QEC / LRU,HVM,6773F010000,1,1000,16772.04,-15772.04,-15.77204,False,negative_repair_contribution
+[4795],QEC / LRU,HVM,C25175000-3,1,950,15233.26,-14283.26,-15.03501052631578947368421053,False,negative_repair_contribution
+[4612],QEC / LRU,HVM,849589,1,5267.16,18987.33,-13720.17,-2.604851570865513863258378329,False,negative_repair_contribution
+[836],QEC / LRU,HVM,828300-5,1,13044.43,25450,-12405.57,-0.9510243069264046033441093248,False,negative_repair_contribution
+[6870],QEC / LRU,HVM,3031863-002,1,1900,13568.22,-11668.22,-6.141168421052631578947368421,False,negative_repair_contribution
+[3825],QEC / LRU,HVM,3031863-002,1,1800,11559.73,-9759.73,-5.422072222222222222222222222,False,negative_repair_contribution
+[3000],QEC / LRU,HVM,6774G010000,1,2000,10542.83,-8542.83,-4.271415,False,negative_repair_contribution
+[5258],CORE,Non-HVM,1968M41G03,1,60750,69025,-8275,-0.1362139917695473251028806584,False,negative_repair_contribution
+[3549],QEC / LRU,HVM,310A2020-5,1,2500,9955.21,-7455.21,-2.982084,False,negative_repair_contribution
+[3924],QEC / LRU,HVM,1211313-010,1,800,6800,-6000,-7.5,False,negative_repair_contribution
+[3884],QEC / LRU,HVM,1211313-010,1,850,6800,-5950,-7,False,negative_repair_contribution
+"[2222, 2223]",Non-HVM,Non-HVM,321-458-300-0,1,500,5083.53,-4583.53,-9.16706,False,negative_repair_contribution
+[580],QEC / LRU,HVM,642W9815-503,1,1250,5595,-4345,-3.476,False,negative_repair_contribution
+[927],FAN,HVM,340-059-925-0,1,500,4815,-4315,-8.63,False,negative_repair_contribution
+[6947],QEC / LRU,Non-HVM,642W9821-501,1,500,4575,-4075,-8.15,False,negative_repair_contribution
+[7602],QEC / LRU,HVM,1226400,1,1000,4825,-3825,-3.825,False,negative_repair_contribution
+[5099],QEC / LRU,HVM,642W9810-505,1,500,4048,-3548,-7.096,False,negative_repair_contribution
+[2678],QEC / LRU,HVM,3214446-4,1,500,3993.77,-3493.77,-6.98754,False,negative_repair_contribution
+[140],LPT,HVM,338-111-603-0,1,200,3671.5,-3471.5,-17.3575,False,negative_repair_contribution
+[5581],QEC / LRU,Non-HVM,325-043-503-0,1,3000,6418,-3418,-1.139333333333333333333333333,False,negative_repair_contribution
+[3516],CORE,Non-HVM,14495-507,1,500,3795,-3295,-6.59,False,negative_repair_contribution
+"[2193, 2194]",Non-HVM,Non-HVM,321-458-100-0,1,500,3275.85,-2775.85,-5.5517,False,negative_repair_contribution
+[5107],QEC / LRU,HVM,642W9814-503,1,500,3218,-2718,-5.436,False,negative_repair_contribution
+[2556],QEC / LRU,HVM,3202222-1,1,500,3168.63,-2668.63,-5.33726,False,negative_repair_contribution
+[5835],FAN,HVM,338-001-305-0,1,500,3140,-2640,-5.28,False,negative_repair_contribution
+[3455],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3456],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3457],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3458],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3459],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3460],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3461],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3462],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3463],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3464],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3465],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3466],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3467],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3468],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[3469],QEC / LRU,HVM,1317M47G01,1,300,2742,-2442,-8.14,False,negative_repair_contribution
+[2777],QEC / LRU,HVM,1211313-010,1,500,2900,-2400,-4.8,False,negative_repair_contribution
+[1041],CORE,Airfoils,P109P46,29,228.23,2583.9,-2355.67,-10.32147395171537484116899619,False,negative_repair_contribution
+[6072],QEC / LRU,Non-HVM,325-025-803-0,1,900,3221,-2321,-2.578888888888888888888888889,False,negative_repair_contribution
+[4586],CORE,Airfoils,P109P46,26,204.62,2445.3,-2240.68,-10.95044472681067344345616264,False,negative_repair_contribution
+[2236],QEC / LRU,HVM,45731-1391,1,500,2500,-2000,-4,False,negative_repair_contribution
+[4575],LPT,HVM,338-073-012-0,1,30,2002.59,-1972.59,-65.753,False,negative_repair_contribution
+[4256],QEC / LRU,Non-HVM,325-014-901-0,1,2000,3816,-1816,-0.908,False,negative_repair_contribution
+[3524],QEC / LRU,HVM,6774E010000,1,900,2676.67,-1776.67,-1.974077777777777777777777778,False,negative_repair_contribution
+[3526],QEC / LRU,HVM,6774E010000,1,900,2676.67,-1776.67,-1.974077777777777777777777778,False,negative_repair_contribution
+[1021],CORE,Airfoils,P334P14,24,634.8,2336.4,-1701.6,-2.680529300567107750472589792,False,negative_repair_contribution
+[5024],QEC / LRU,HVM,320-401-201-0,1,1300,2965.72,-1665.72,-1.281323076923076923076923077,False,negative_repair_contribution
+[424],CORE,Airfoils,P109P46,20,157.4,1782,-1624.6,-10.32147395171537484116899619,False,negative_repair_contribution
+[1908],QEC / LRU,HVM,3291390-3,1,8500,10031,-1531,-0.1801176470588235294117647059,False,negative_repair_contribution
+[681],FAN,HVM,338-007-103-0,1,200,1653,-1453,-7.265,False,negative_repair_contribution
+[5435],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5436],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5437],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5438],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5439],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5440],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5441],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5442],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5443],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5444],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5445],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5446],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5447],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5448],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5449],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5450],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[5824],QEC / LRU,HVM,1317M47G01,1,300,1750,-1450,-4.833333333333333333333333333,False,negative_repair_contribution
+[3559],QEC / LRU,HVM,8TJ146CFA1,1,2000,3426,-1426,-0.713,False,negative_repair_contribution
+[4910],Non-HVM,Non-HVM,238-0502-503,1,2500,3825,-1325,-0.53,False,negative_repair_contribution
+[4297],QEC / LRU,HVM,1226400,1,700,2000,-1300,-1.857142857142857142857142857,False,negative_repair_contribution
+[594],LPT,HVM,338-111-603-0,1,200,1500,-1300,-6.5,False,negative_repair_contribution
+[130],QEC / LRU,HVM,1317M47G01,1,500,1750,-1250,-2.5,False,negative_repair_contribution
+[131],QEC / LRU,HVM,1317M47G01,1,500,1750,-1250,-2.5,False,negative_repair_contribution
+[132],QEC / LRU,HVM,1317M47G01,1,500,1750,-1250,-2.5,False,negative_repair_contribution
+[1031],CORE,Airfoils,P334P13,17,449.65,1654.95,-1205.30,-2.680529300567107750472589792,False,negative_repair_contribution
+[4058],Non-HVM,Non-HVM,238-0701-529,1,500,1695,-1195,-2.39,False,negative_repair_contribution
+[3544],QEC / LRU,Non-HVM,310A2041-10,1,220,1400,-1180,-5.363636363636363636363636364,False,negative_repair_contribution
+[3174],QEC / LRU,Non-HVM,320-392-602-0,1,2750,3885,-1135,-0.4127272727272727272727272727,False,negative_repair_contribution
+[389],Non-HVM,Non-HVM,321-451-652-0,1,1250,2374.63,-1124.63,-0.899704,False,negative_repair_contribution
+[5075],QEC / LRU,Non-HVM,FA00631C,1,500,1614,-1114,-2.228,False,negative_repair_contribution
+[6251],FAN,HVM,338-001-305-0,1,500,1500,-1000,-2,False,negative_repair_contribution
+[6256],FAN,HVM,340-000-205-0,1,500,1500,-1000,-2,False,negative_repair_contribution
+[1929],QEC / LRU,HVM,45731-1382,1,11000,12000,-1000,-0.09090909090909090909090909091,False,negative_repair_contribution
+[5999],QEC / LRU,Non-HVM,5507-902-0,1,2000,3000,-1000,-0.5,False,negative_repair_contribution
+[3533],QEC / LRU,Non-HVM,310A2041-10,1,220,1200,-980,-4.454545454545454545454545455,False,negative_repair_contribution
+[4896],Non-HVM,Non-HVM,238-0801-539,1,500,1450,-950,-1.9,False,negative_repair_contribution
+[7105],CORE,Airfoils,P109P46,11,86.57,1034.55,-947.98,-10.95044472681067344345616264,False,negative_repair_contribution
+[1023],CORE,Airfoils,P335P14,12,340.8,1234.2,-893.4,-2.621478873239436619718309859,False,negative_repair_contribution
+[6948],QEC / LRU,Non-HVM,642W9821-501,1,3806,4575,-769,-0.2020493956910141881240147136,False,negative_repair_contribution
+[4892],Non-HVM,Non-HVM,321-451-655-0,1,1250,1981.25,-731.25,-0.585,False,negative_repair_contribution
+[1118],CORE,Airfoils,P334P14,8,211.6,941.6,-730.0,-3.449905482041587901701323251,False,negative_repair_contribution
+[422],CORE,Airfoils,P109P46,8,62.96,712.8,-649.84,-10.32147395171537484116899619,False,negative_repair_contribution
+[3092],FAN,HVM,1853M10G01,1,50,693,-643,-12.86,False,negative_repair_contribution
+[4460],QEC / LRU,HVM,320-290-102-0,1,4750,5303,-553,-0.1164210526315789473684210526,False,negative_repair_contribution
+[5729],CORE,Airfoils,P244G05,2,2978,3522.2,-544.2,-0.1827400940228341168569509738,False,negative_repair_contribution
+[1485],LPT,HVM,321-450-603-0,1,12000,12535.17,-535.17,-0.0445975,False,negative_repair_contribution
+"[6127, 6128]",LPT,HVM,338-073-011-0,4,120,652,-532,-4.433333333333333333333333333,False,negative_repair_contribution
+[160],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[2510],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[2751],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[2792],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[4553],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[4554],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[4560],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[6061],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[752],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[994],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[995],LPT,HVM,338-111-603-0,1,200,700,-500,-2.5,False,negative_repair_contribution
+[1140],LPT,HVM,338-111-603-0,1,200,672,-472,-2.36,False,negative_repair_contribution
+[4157],LPT,HVM,338-111-603-0,1,200,672,-472,-2.36,False,negative_repair_contribution
+[753],LPT,HVM,338-111-603-0,1,200,668.5,-468.5,-2.3425,False,negative_repair_contribution
+[754],LPT,HVM,338-111-603-0,1,200,668.5,-468.5,-2.3425,False,negative_repair_contribution
+[1069],LPT,HVM,338-111-603-0,1,200,640.5,-440.5,-2.2025,False,negative_repair_contribution
+[5334],QEC / LRU,HVM,121664-8,1,2950,3390,-440,-0.1491525423728813559322033898,False,negative_repair_contribution
+[4347],CORE,Airfoils,P109P55,4,31.48,446.6,-415.12,-13.18678526048284625158831004,False,negative_repair_contribution
+[1048],CORE,Airfoils,P109P47,5,39.35,445.5,-406.15,-10.32147395171537484116899619,False,negative_repair_contribution
+[7314],QEC / LRU,HVM,2293B020000,1,800,1200,-400,-0.5,False,negative_repair_contribution
+"[6210, 6211]",LPT,HVM,338-073-011-0,3,90,489,-399,-4.433333333333333333333333333,False,negative_repair_contribution
+[7107],CORE,Airfoils,P109P47,4,31.48,376.2,-344.72,-10.95044472681067344345616264,False,negative_repair_contribution
+[4909],QEC / LRU,Non-HVM,320-298-101-0,1,1750,2083,-333,-0.1902857142857142857142857143,False,negative_repair_contribution
+[2765],CORE,Airfoils,P336P13,4,105.8,413.6,-307.8,-2.909262759924385633270321361,False,negative_repair_contribution
+[4924],Non-HVM,Non-HVM,AE707418-1,1,1500,1800,-300,-0.2,False,negative_repair_contribution
+[4666],FAN,HVM,1853M10G03,1,400,693,-293,-0.7325,False,negative_repair_contribution
+[4091],FAN,HVM,1853M10G04,1,400,693,-293,-0.7325,False,negative_repair_contribution
+[4862],FAN,HVM,1853M10G04,1,400,693,-293,-0.7325,False,negative_repair_contribution
+[669],LPT,HVM,338-069-701-0,1,150,435,-285,-1.9,False,negative_repair_contribution
+[676],LPT,HVM,338-069-701-0,1,150,435,-285,-1.9,False,negative_repair_contribution
+[129],QEC / LRU,HVM,C24937001-1,1,2500,2750,-250,-0.1,False,negative_repair_contribution
+[5969],QEC / LRU,Non-HVM,325-025-401-0,1,350,550,-200,-0.5714285714285714285714285714,False,negative_repair_contribution
+[7234],QEC / LRU,Non-HVM,325-027-604-0,1,1900,2083,-183,-0.09631578947368421052631578947,False,negative_repair_contribution
+[6652],FAN,HVM,337-108-551-0,1,100,273,-173,-1.73,False,negative_repair_contribution
+[7495],FAN,HVM,337-108-551-0,1,100,273,-173,-1.73,False,negative_repair_contribution
+[7331],Non-HVM,Non-HVM,238-0701-527,1,500,650,-150,-0.3,False,negative_repair_contribution
+[2710],Non-HVM,Non-HVM,238-0802-503,1,1300,1450,-150,-0.1153846153846153846153846154,False,negative_repair_contribution
+[1705],QEC / LRU,HVM,121666-13,1,5500,5648.01,-148.01,-0.02691090909090909090909090909,False,negative_repair_contribution
+[1054],QEC / LRU,HVM,74-110-4,1,1250,1396.17,-146.17,-0.116936,False,negative_repair_contribution
+[4078],LPT,Airfoils,338-110-103-0,1,825,970.9,-145.9,-0.1768484848484848484848484848,False,negative_repair_contribution
+"[488, 489]",LPT,HVM,338-073-011-0,1,30,163,-133,-4.433333333333333333333333333,False,negative_repair_contribution
+"[6121, 6122]",LPT,HVM,338-073-011-0,1,30,163,-133,-4.433333333333333333333333333,False,negative_repair_contribution
+"[6123, 6124]",LPT,HVM,338-073-011-0,1,30,163,-133,-4.433333333333333333333333333,False,negative_repair_contribution
+"[6125, 6126]",LPT,HVM,338-073-011-0,1,30,163,-133,-4.433333333333333333333333333,False,negative_repair_contribution
+[7316],LPT,Airfoils,338-110-103-0,1,1100,1229.9,-129.9,-0.1180909090909090909090909091,False,negative_repair_contribution
+[7143],QEC / LRU,Non-HVM,21SN41-52,1,375.1,495,-119.9,-0.3196480938416422287390029326,False,negative_repair_contribution
+[2653],QEC / LRU,Non-HVM,8TJ167GHH1,1,2100,2218.06,-118.06,-0.05621904761904761904761904762,False,negative_repair_contribution
+[4725],CORE,Airfoils,P109P57,1,7.87,106.7,-98.83,-12.55781448538754764930114358,False,negative_repair_contribution
+[2795],CORE,Airfoils,P335P14,1,28.4,115.5,-87.1,-3.066901408450704225352112676,False,negative_repair_contribution
+[2787],CORE,Airfoils,P109P47,1,7.87,94.05,-86.18,-10.95044472681067344345616264,False,negative_repair_contribution
+[4597],CORE,Airfoils,P109P47,1,7.87,94.05,-86.18,-10.95044472681067344345616264,False,negative_repair_contribution
+[1033],CORE,Airfoils,P109P48,1,7.87,89.1,-81.23,-10.32147395171537484116899619,False,negative_repair_contribution
+[1026],CORE,Airfoils,P109P49,1,7.87,89.1,-81.23,-10.32147395171537484116899619,False,negative_repair_contribution
+[1038],CORE,Airfoils,P109P55,1,7.87,89.1,-81.23,-10.32147395171537484116899619,False,negative_repair_contribution
+"[6863, 6864]",Non-HVM,Non-HVM,321-450-900-0,1,1250,1315.2,-65.2,-0.05216,False,negative_repair_contribution
+[2278],QEC / LRU,Non-HVM,8TJ167GHH1,1,2100,2153.02,-53.02,-0.02524761904761904761904761905,False,negative_repair_contribution
+"[4937, 4938]",Non-HVM,Non-HVM,321-451-500-0,1,1000,1037.66,-37.66,-0.03766,False,negative_repair_contribution
+[5300],CORE,HVM,9978M69G43,2,900,936,-36,-0.04,False,negative_repair_contribution
+[5687],CORE,Airfoils,P109P41,1,140,175.45,-35.45,-0.2532142857142857142857142857,False,negative_repair_contribution

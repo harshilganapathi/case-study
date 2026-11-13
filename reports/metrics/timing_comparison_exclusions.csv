@@ -1,0 +1,6 @@
+source_records,part,module,subtype,qty,oh_date,invoice_date,observed_days,expected_days,difference_days,above_expected,long_observed_interval,comparison_exclusion
+[3516],14495-507,CORE,Non-HVM,1,2021-08-03,2021-09-07,35,131638,,,False,expected_days_above_review_threshold
+[3517],14495-507,CORE,Non-HVM,1,2021-08-03,2021-10-13,71,131638,,,False,expected_days_above_review_threshold
+[4913],14495-507,CORE,Non-HVM,1,0222-02-17,2022-04-06,657485,131638,,,True,expected_days_above_review_threshold
+[5499],14495-507,CORE,Non-HVM,1,2022-07-11,2023-05-25,318,131638,,,False,expected_days_above_review_threshold
+[5915],14495-507,CORE,Non-HVM,1,2022-07-11,2023-04-18,281,131638,,,False,expected_days_above_review_threshold

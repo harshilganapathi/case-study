@@ -1,0 +1,3920 @@
+{
+  "accepted_status_counts": {
+    "Inventory": 24917,
+    "Invoiced": 7537,
+    "Scrapped": 4549
+  },
+  "accounting": {
+    "accepted_logical_records": 37003,
+    "accepted_source_rows": 39334,
+    "calculation_records": 36752,
+    "duplicate_copies_excluded_from_calculations": 251,
+    "quarantined_cases": 2,
+    "quarantined_source_rows": 4,
+    "raw_data_rows": 39338,
+    "raw_rows_accounted_for_exactly_once": true,
+    "reconstructed_records": 2331,
+    "unchanged_records": 34672
+  },
+  "all_accepted_controls": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 24917,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-9",
+        "positive_sum": "105877",
+        "sum": "105868",
+        "valid_records": 24917
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "10598068.30",
+        "sum": "10598068.30",
+        "valid_records": 24917
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "7511070.94",
+        "sum": "7511070.94",
+        "valid_records": 24917
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 24917,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 24917
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-2515772.83",
+        "positive_sum": "130404950.10",
+        "sum": "127889177.27",
+        "valid_records": 7537
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-1301",
+        "positive_sum": "35522",
+        "sum": "34221",
+        "valid_records": 7537
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-897962.25",
+        "positive_sum": "32136157.40",
+        "sum": "31238195.15",
+        "valid_records": 7537
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-702905.23578",
+        "positive_sum": "20787603.26859",
+        "sum": "20084698.03281",
+        "valid_records": 7537
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-2000047.73",
+        "positive_sum": "81750828.44",
+        "sum": "79750780.71",
+        "valid_records": 7537
+      },
+      "records": 7537
+    },
+    "Scrapped": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "16531",
+        "sum": "16531",
+        "valid_records": 4549
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 4549
+    }
+  },
+  "calculation_controls": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 24724,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-9",
+        "positive_sum": "105643",
+        "sum": "105634",
+        "valid_records": 24724
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "10590185.30",
+        "sum": "10590185.30",
+        "valid_records": 24724
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "7503769.94",
+        "sum": "7503769.94",
+        "valid_records": 24724
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 24724,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 24724
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-2473772.83",
+        "positive_sum": "129530115.10",
+        "sum": "127056342.27",
+        "valid_records": 7479
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-1299",
+        "positive_sum": "35454",
+        "sum": "34155",
+        "valid_records": 7479
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-897962.25",
+        "positive_sum": "31916784.88",
+        "sum": "31018822.63",
+        "valid_records": 7479
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-702905.23578",
+        "positive_sum": "20573871.74860",
+        "sum": "19870966.51282",
+        "valid_records": 7479
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-1958047.73",
+        "positive_sum": "80888593.44",
+        "sum": "78930545.71",
+        "valid_records": 7479
+      },
+      "records": 7479
+    },
+    "Scrapped": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "16531",
+        "sum": "16531",
+        "valid_records": 4549
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 4549
+    }
+  },
+  "calculation_flags": {
+    "exact_duplicate_candidate": 235,
+    "expected_days_outside_review_range": 27,
+    "expected_days_unavailable": 1694,
+    "missing:Condition": 2326,
+    "missing:Module": 149,
+    "missing:SubType": 149,
+    "nonpositive_quantity": 264,
+    "oh_date_unavailable": 1260,
+    "possible_credit": 259,
+    "recovered_split_missing_condition": 2326,
+    "reported_zero:Repair Ext Cost": 22807,
+    "reported_zero:Repair Unit Cost": 22807,
+    "serial_missing_or_placeholder": 23380,
+    "trimmed:PART": 2,
+    "trimmed:SN": 3,
+    "trimmed:Updated_Description": 44,
+    "unlabelled_tail_value": 398
+  },
+  "calculation_profile_by_status": {
+    "Inventory": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 164,
+        "invalid": 0,
+        "maximum": "131638",
+        "minimum": "2",
+        "missing": 1599,
+        "negative": 0,
+        "top_values": [
+          [
+            "90",
+            9698
+          ],
+          [
+            "130",
+            1233
+          ],
+          [
+            "83",
+            435
+          ],
+          [
+            "51",
+            361
+          ],
+          [
+            "55",
+            319
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 3,
+        "missing": 19750,
+        "top_values": [
+          [
+            "529",
+            3482
+          ],
+          [
+            "599",
+            1457
+          ],
+          [
+            "539",
+            35
+          ]
+        ]
+      },
+      "Condition": {
+        "distinct_nonmissing": 8,
+        "missing": 2124,
+        "top_values": [
+          [
+            "R",
+            17600
+          ],
+          [
+            "X",
+            2671
+          ],
+          [
+            "O",
+            1832
+          ],
+          [
+            "B",
+            255
+          ],
+          [
+            "S",
+            223
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 595,
+        "missing": 0,
+        "top_values": [
+          [
+            "TUBE",
+            1244
+          ],
+          [
+            "FAN-STG 1 BLADE",
+            994
+          ],
+          [
+            "VANE",
+            948
+          ],
+          [
+            "HARNESS",
+            937
+          ],
+          [
+            "BLADE",
+            716
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24724,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 129,
+        "missing": 0,
+        "top_values": [
+          [
+            "58828",
+            12475
+          ],
+          [
+            "F0301",
+            6123
+          ],
+          [
+            "51563",
+            2102
+          ],
+          [
+            "062W0",
+            1132
+          ],
+          [
+            "59364",
+            468
+          ]
+        ]
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24724,
+        "top_values": [],
+        "valid": 0
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 164,
+        "missing": 18906,
+        "top_values": [
+          [
+            "267067",
+            380
+          ],
+          [
+            "266623",
+            207
+          ],
+          [
+            "266390",
+            200
+          ],
+          [
+            "5378735",
+            188
+          ],
+          [
+            "266034",
+            184
+          ]
+        ]
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            9943
+          ],
+          [
+            "CORE",
+            5745
+          ],
+          [
+            "FAN",
+            3425
+          ],
+          [
+            "QEC / LRU",
+            3225
+          ],
+          [
+            "LPT",
+            2244
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 397,
+        "invalid": 0,
+        "maximum": "2023-08-24",
+        "minimum": "2002-10-24",
+        "missing": 22542,
+        "top_values": [
+          [
+            "8/10/2023",
+            76
+          ],
+          [
+            "7/17/2023",
+            71
+          ],
+          [
+            "7/12/2023",
+            62
+          ],
+          [
+            "6/21/2023",
+            47
+          ],
+          [
+            "8/16/2023",
+            46
+          ]
+        ],
+        "valid": 2182
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 24724,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 2957,
+        "missing": 0,
+        "top_values": [
+          [
+            "338-002-114-0",
+            994
+          ],
+          [
+            "121664-8",
+            216
+          ],
+          [
+            "338-108-608-0",
+            194
+          ],
+          [
+            "338-110-103-0",
+            165
+          ],
+          [
+            "6840023M1",
+            148
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 302,
+        "missing": 0,
+        "top_values": [
+          [
+            "266429",
+            507
+          ],
+          [
+            "266980",
+            456
+          ],
+          [
+            "267123",
+            448
+          ],
+          [
+            "265943",
+            437
+          ],
+          [
+            "267246",
+            412
+          ]
+        ]
+      },
+      "QTY": {
+        "distinct_nonmissing": 112,
+        "invalid": 0,
+        "maximum": "193",
+        "minimum": "-9",
+        "missing": 0,
+        "negative": 1,
+        "top_values": [
+          [
+            "1",
+            18900
+          ],
+          [
+            "2",
+            2278
+          ],
+          [
+            "3",
+            407
+          ],
+          [
+            "4",
+            365
+          ],
+          [
+            "5",
+            232
+          ]
+        ],
+        "zero": 4
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 4721,
+        "missing": 16348,
+        "top_values": [
+          [
+            "9522151",
+            80
+          ],
+          [
+            "9520229",
+            80
+          ],
+          [
+            "9520452",
+            45
+          ],
+          [
+            "9523096",
+            36
+          ],
+          [
+            "9524174",
+            36
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 1280,
+        "invalid": 0,
+        "maximum": "160832.7",
+        "minimum": "0",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "0",
+            21496
+          ],
+          [
+            "228.8",
+            110
+          ],
+          [
+            "1333",
+            100
+          ],
+          [
+            "7658.7",
+            93
+          ],
+          [
+            "750",
+            86
+          ]
+        ],
+        "zero": 21496
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 842,
+        "invalid": 0,
+        "maximum": "81631.78",
+        "minimum": "0",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "0",
+            21496
+          ],
+          [
+            "228.8",
+            116
+          ],
+          [
+            "1333",
+            100
+          ],
+          [
+            "7658.7",
+            94
+          ],
+          [
+            "750",
+            86
+          ]
+        ],
+        "zero": 21496
+      },
+      "SN": {
+        "distinct_nonmissing": 8784,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            15692
+          ],
+          [
+            "NSI9000001",
+            30
+          ],
+          [
+            "N/A",
+            29
+          ],
+          [
+            "N/S/N",
+            23
+          ],
+          [
+            "308",
+            4
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            13393
+          ],
+          [
+            "Airfoils",
+            6384
+          ],
+          [
+            "HVM",
+            4193
+          ],
+          [
+            "LLPs",
+            612
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 24683,
+        "missing": 0,
+        "top_values": [
+          [
+            "MH3577",
+            16
+          ],
+          [
+            "ABF237",
+            3
+          ],
+          [
+            "MH819",
+            2
+          ],
+          [
+            "ABC195",
+            2
+          ],
+          [
+            "MV966",
+            2
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Inventory",
+            24724
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 0,
+        "missing": 24724,
+        "top_values": []
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24724,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 315,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            9640
+          ],
+          [
+            "Fan Blade, Stg 1",
+            1130
+          ],
+          [
+            "Acoustical Aft Panel",
+            320
+          ],
+          [
+            "Engine Teardown",
+            303
+          ],
+          [
+            "HPT Blade",
+            289
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 8,
+        "missing": 2,
+        "top_values": [
+          [
+            "MDT",
+            17400
+          ],
+          [
+            "HAJ",
+            4715
+          ],
+          [
+            "WDL",
+            2521
+          ],
+          [
+            "SGP",
+            39
+          ],
+          [
+            "SRT",
+            24
+          ]
+        ]
+      }
+    },
+    "Invoiced": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 164,
+        "invalid": 0,
+        "maximum": "131638",
+        "minimum": "2",
+        "missing": 49,
+        "negative": 0,
+        "top_values": [
+          [
+            "130",
+            940
+          ],
+          [
+            "90",
+            708
+          ],
+          [
+            "150",
+            392
+          ],
+          [
+            "83",
+            249
+          ],
+          [
+            "97",
+            209
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      },
+      "Condition": {
+        "distinct_nonmissing": 7,
+        "missing": 202,
+        "top_values": [
+          [
+            "O",
+            5483
+          ],
+          [
+            "R",
+            1040
+          ],
+          [
+            "S",
+            553
+          ],
+          [
+            "A",
+            127
+          ],
+          [
+            "B",
+            38
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 317,
+        "missing": 0,
+        "top_values": [
+          [
+            "FAN-STG 1 BLADE",
+            749
+          ],
+          [
+            "NOZZLE",
+            354
+          ],
+          [
+            "VANE",
+            340
+          ],
+          [
+            "BLADE",
+            281
+          ],
+          [
+            "HARNESS",
+            248
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 1603,
+        "invalid": 0,
+        "maximum": "923000",
+        "minimum": "-185000",
+        "missing": 0,
+        "negative": 259,
+        "top_values": [
+          [
+            "3800",
+            286
+          ],
+          [
+            "25",
+            213
+          ],
+          [
+            "15800",
+            177
+          ],
+          [
+            "18000",
+            149
+          ],
+          [
+            "14475",
+            144
+          ]
+        ],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 617,
+        "invalid": 0,
+        "maximum": "2023-08-29",
+        "minimum": "2021-02-05",
+        "missing": 0,
+        "top_values": [
+          [
+            "10/31/2022",
+            225
+          ],
+          [
+            "1/7/2022",
+            152
+          ],
+          [
+            "12/21/2021",
+            143
+          ],
+          [
+            "8/14/2023",
+            119
+          ],
+          [
+            "8/25/2022",
+            108
+          ]
+        ],
+        "valid": 7479
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 7,
+        "top_values": [
+          [
+            "CORE",
+            2504
+          ],
+          [
+            "QEC / LRU",
+            2145
+          ],
+          [
+            "FAN",
+            1506
+          ],
+          [
+            "LPT",
+            671
+          ],
+          [
+            "Non-HVM",
+            646
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 733,
+        "invalid": 0,
+        "maximum": "2023-08-24",
+        "minimum": "0222-02-17",
+        "missing": 1260,
+        "top_values": [
+          [
+            "7/13/2022",
+            79
+          ],
+          [
+            "11/19/2021",
+            75
+          ],
+          [
+            "10/31/2022",
+            67
+          ],
+          [
+            "10/13/2021",
+            56
+          ],
+          [
+            "1/5/2023",
+            56
+          ]
+        ],
+        "valid": 6219
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 993,
+        "missing": 0,
+        "top_values": [
+          [
+            "338-002-114-0",
+            749
+          ],
+          [
+            "1317M47G18",
+            222
+          ],
+          [
+            "338-067-014-0",
+            112
+          ],
+          [
+            "121664-8",
+            108
+          ],
+          [
+            "1893M42G04",
+            106
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      },
+      "QTY": {
+        "distinct_nonmissing": 126,
+        "invalid": 0,
+        "maximum": "159",
+        "minimum": "-48",
+        "missing": 0,
+        "negative": 259,
+        "top_values": [
+          [
+            "1",
+            5163
+          ],
+          [
+            "2",
+            435
+          ],
+          [
+            "3",
+            186
+          ],
+          [
+            "-1",
+            159
+          ],
+          [
+            "4",
+            140
+          ]
+        ],
+        "zero": 0
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 3233,
+        "missing": 1140,
+        "top_values": [
+          [
+            "9520876",
+            39
+          ],
+          [
+            "9500785",
+            37
+          ],
+          [
+            "9514767",
+            36
+          ],
+          [
+            "9499776",
+            36
+          ],
+          [
+            "9516584",
+            36
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 2584,
+        "invalid": 0,
+        "maximum": "450078.99",
+        "minimum": "-72875.6",
+        "missing": 0,
+        "negative": 155,
+        "top_values": [
+          [
+            "0",
+            1311
+          ],
+          [
+            "1220",
+            185
+          ],
+          [
+            "1129",
+            168
+          ],
+          [
+            "1900",
+            142
+          ],
+          [
+            "1750",
+            99
+          ]
+        ],
+        "zero": 1311
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 1703,
+        "invalid": 0,
+        "maximum": "450078.99",
+        "minimum": "-72875.6",
+        "missing": 0,
+        "negative": 155,
+        "top_values": [
+          [
+            "0",
+            1311
+          ],
+          [
+            "1220",
+            185
+          ],
+          [
+            "1129",
+            168
+          ],
+          [
+            "1900",
+            142
+          ],
+          [
+            "145",
+            127
+          ]
+        ],
+        "zero": 1311
+      },
+      "SN": {
+        "distinct_nonmissing": 3832,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            3467
+          ],
+          [
+            "DB993371",
+            5
+          ],
+          [
+            "DB993379",
+            5
+          ],
+          [
+            "6104",
+            4
+          ],
+          [
+            "51563",
+            4
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 7,
+        "top_values": [
+          [
+            "Airfoils",
+            3336
+          ],
+          [
+            "HVM",
+            2573
+          ],
+          [
+            "Non-HVM",
+            1400
+          ],
+          [
+            "LLPs",
+            163
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 6949,
+        "missing": 0,
+        "top_values": [
+          [
+            "2E1148",
+            5
+          ],
+          [
+            "CN6594",
+            5
+          ],
+          [
+            "AAE100",
+            4
+          ],
+          [
+            "JI0889",
+            4
+          ],
+          [
+            "OA1720",
+            4
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Invoiced",
+            7479
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 73,
+        "missing": 0,
+        "top_values": [
+          [
+            "UNITED STATES",
+            3201
+          ],
+          [
+            "CANADA",
+            698
+          ],
+          [
+            "UNITED KINGDOM",
+            400
+          ],
+          [
+            "CHINA PEOPLES REPUB",
+            344
+          ],
+          [
+            "GERMANY",
+            326
+          ]
+        ]
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 827,
+        "invalid": 0,
+        "maximum": "595000",
+        "minimum": "-185000",
+        "missing": 0,
+        "negative": 259,
+        "top_values": [
+          [
+            "3800",
+            290
+          ],
+          [
+            "25",
+            216
+          ],
+          [
+            "15800",
+            177
+          ],
+          [
+            "500",
+            176
+          ],
+          [
+            "5000",
+            158
+          ]
+        ],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 290,
+        "missing": 7,
+        "top_values": [
+          [
+            "Fan Blade, Stg 1",
+            914
+          ],
+          [
+            "Non-HVM",
+            644
+          ],
+          [
+            "Fuel Nozzle",
+            392
+          ],
+          [
+            "HPC Blade, Stg 9",
+            138
+          ],
+          [
+            "HPC Blade, Stg 8",
+            136
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 0,
+        "missing": 7479,
+        "top_values": []
+      }
+    },
+    "Scrapped": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 73,
+        "invalid": 0,
+        "maximum": "813",
+        "minimum": "2",
+        "missing": 46,
+        "negative": 0,
+        "top_values": [
+          [
+            "90",
+            3039
+          ],
+          [
+            "89",
+            132
+          ],
+          [
+            "97",
+            125
+          ],
+          [
+            "110",
+            117
+          ],
+          [
+            "83",
+            114
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Condition": {
+        "distinct_nonmissing": 2,
+        "missing": 0,
+        "top_values": [
+          [
+            "R",
+            2968
+          ],
+          [
+            "X",
+            1581
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 100,
+        "missing": 0,
+        "top_values": [
+          [
+            "TUBE",
+            1404
+          ],
+          [
+            "BLADE",
+            836
+          ],
+          [
+            "TUBE ASSY",
+            482
+          ],
+          [
+            "HOSE",
+            446
+          ],
+          [
+            "MANIFOLD",
+            184
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "top_values": [],
+        "valid": 0
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3004
+          ],
+          [
+            "CORE",
+            1213
+          ],
+          [
+            "FAN",
+            169
+          ],
+          [
+            "LPT",
+            138
+          ],
+          [
+            "QEC / LRU",
+            25
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "top_values": [],
+        "valid": 0
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 1134,
+        "missing": 0,
+        "top_values": [
+          [
+            "P263G01",
+            22
+          ],
+          [
+            "9992M65G08",
+            21
+          ],
+          [
+            "P262G01",
+            21
+          ],
+          [
+            "P333P03",
+            20
+          ],
+          [
+            "P338P06",
+            19
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "QTY": {
+        "distinct_nonmissing": 68,
+        "invalid": 0,
+        "maximum": "119",
+        "minimum": "1",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "1",
+            3548
+          ],
+          [
+            "2",
+            368
+          ],
+          [
+            "3",
+            76
+          ],
+          [
+            "4",
+            48
+          ],
+          [
+            "6",
+            43
+          ]
+        ],
+        "zero": 0
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 950,
+        "missing": 3011,
+        "top_values": [
+          [
+            "9508253",
+            8
+          ],
+          [
+            "9508244",
+            8
+          ],
+          [
+            "9513010",
+            7
+          ],
+          [
+            "9509113",
+            7
+          ],
+          [
+            "9504654",
+            7
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "SN": {
+        "distinct_nonmissing": 354,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            4195
+          ],
+          [
+            "N/S/N",
+            2
+          ],
+          [
+            ".",
+            1
+          ],
+          [
+            "11914",
+            1
+          ],
+          [
+            "XAEDV139",
+            1
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3108
+          ],
+          [
+            "Airfoils",
+            1021
+          ],
+          [
+            "HVM",
+            284
+          ],
+          [
+            "LLPs",
+            136
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 4549,
+        "missing": 0,
+        "top_values": [
+          [
+            "TV0067",
+            1
+          ],
+          [
+            "FS0207",
+            1
+          ],
+          [
+            "FX1898",
+            1
+          ],
+          [
+            "FE0302",
+            1
+          ],
+          [
+            "FK0831",
+            1
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Scrapped",
+            4549
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 107,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3001
+          ],
+          [
+            "HPC Blade, Stg 8",
+            132
+          ],
+          [
+            "HPC Blade, Stg 5",
+            117
+          ],
+          [
+            "HPC Blade, Stg 6",
+            114
+          ],
+          [
+            "HPC Blade, Stg 7",
+            112
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      }
+    }
+  },
+  "calculation_status_counts": {
+    "Inventory": 24724,
+    "Invoiced": 7479,
+    "Scrapped": 4549
+  },
+  "controls_reconcile": true,
+  "deduplication_controls_reconcile": true,
+  "duplicate_candidates": {
+    "excess_records": 251,
+    "groups": 235,
+    "policy": "Assume identical source records are repeated export copies; count once and keep first source occurrence",
+    "records_in_groups": 486
+  },
+  "encoding": "cp1252",
+  "excluded_duplicate_controls": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 193,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "234",
+        "sum": "234",
+        "valid_records": 193
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "7883",
+        "sum": "7883",
+        "valid_records": 193
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "7301",
+        "sum": "7301",
+        "valid_records": 193
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 193,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 193
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-42000",
+        "positive_sum": "874835",
+        "sum": "832835",
+        "valid_records": 58
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-2",
+        "positive_sum": "68",
+        "sum": "66",
+        "valid_records": 58
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "219372.52",
+        "sum": "219372.52",
+        "valid_records": 58
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "213731.51999",
+        "sum": "213731.51999",
+        "valid_records": 58
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-42000",
+        "positive_sum": "862235",
+        "sum": "820235",
+        "valid_records": 58
+      },
+      "records": 58
+    }
+  },
+  "expected_days_review_threshold": 3650,
+  "extension_checks": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "eligible_records": 0,
+        "naive_mismatch_examples": [],
+        "naive_qty_times_unit_mismatches": 0,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      },
+      "Repair Ext Cost": {
+        "eligible_records": 24724,
+        "naive_mismatch_examples": [],
+        "naive_qty_times_unit_mismatches": 0,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      }
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "eligible_records": 7479,
+        "naive_mismatch_examples": [
+          [
+            149
+          ],
+          [
+            152
+          ],
+          [
+            211
+          ],
+          [
+            293
+          ],
+          [
+            366
+          ]
+        ],
+        "naive_qty_times_unit_mismatches": 259,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      },
+      "Repair Ext Cost": {
+        "eligible_records": 7479,
+        "naive_mismatch_examples": [
+          [
+            152
+          ],
+          [
+            211
+          ],
+          [
+            446,
+            447
+          ],
+          [
+            487
+          ],
+          [
+            647,
+            648
+          ]
+        ],
+        "naive_qty_times_unit_mismatches": 155,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      }
+    },
+    "Scrapped": {
+      "Extended Sales Price": {
+        "eligible_records": 0,
+        "naive_mismatch_examples": [],
+        "naive_qty_times_unit_mismatches": 0,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      },
+      "Repair Ext Cost": {
+        "eligible_records": 0,
+        "naive_mismatch_examples": [],
+        "naive_qty_times_unit_mismatches": 0,
+        "signed_mismatch_source_records": [],
+        "signed_unit_times_absolute_qty_mismatches": 0
+      }
+    }
+  },
+  "flags": {
+    "exact_duplicate_candidate": 486,
+    "expected_days_outside_review_range": 27,
+    "expected_days_unavailable": 1714,
+    "missing:Condition": 2331,
+    "missing:Module": 149,
+    "missing:SubType": 149,
+    "nonpositive_quantity": 266,
+    "oh_date_unavailable": 1280,
+    "possible_credit": 261,
+    "recovered_split_missing_condition": 2331,
+    "reported_zero:Repair Ext Cost": 23009,
+    "reported_zero:Repair Unit Cost": 23009,
+    "serial_missing_or_placeholder": 23549,
+    "trimmed:PART": 2,
+    "trimmed:SN": 3,
+    "trimmed:Updated_Description": 44,
+    "unlabelled_tail_value": 398
+  },
+  "flags_by_status": {
+    "Inventory": {
+      "exact_duplicate_candidate": 386,
+      "expected_days_outside_review_range": 21,
+      "expected_days_unavailable": 1609,
+      "missing:Condition": 2129,
+      "missing:Module": 142,
+      "missing:SubType": 142,
+      "nonpositive_quantity": 5,
+      "recovered_split_missing_condition": 2129,
+      "reported_zero:Repair Ext Cost": 21678,
+      "reported_zero:Repair Unit Cost": 21678,
+      "serial_missing_or_placeholder": 15840,
+      "trimmed:PART": 2,
+      "trimmed:SN": 2,
+      "trimmed:Updated_Description": 33,
+      "unlabelled_tail_value": 352
+    },
+    "Invoiced": {
+      "exact_duplicate_candidate": 100,
+      "expected_days_outside_review_range": 6,
+      "expected_days_unavailable": 59,
+      "missing:Condition": 202,
+      "missing:Module": 7,
+      "missing:SubType": 7,
+      "nonpositive_quantity": 261,
+      "oh_date_unavailable": 1280,
+      "possible_credit": 261,
+      "recovered_split_missing_condition": 202,
+      "reported_zero:Repair Ext Cost": 1331,
+      "reported_zero:Repair Unit Cost": 1331,
+      "serial_missing_or_placeholder": 3512,
+      "trimmed:SN": 1,
+      "trimmed:Updated_Description": 11,
+      "unlabelled_tail_value": 46
+    },
+    "Scrapped": {
+      "expected_days_unavailable": 46,
+      "serial_missing_or_placeholder": 4197
+    }
+  },
+  "profile_by_status": {
+    "Inventory": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 164,
+        "invalid": 0,
+        "maximum": "131638",
+        "minimum": "2",
+        "missing": 1609,
+        "negative": 0,
+        "top_values": [
+          [
+            "90",
+            9804
+          ],
+          [
+            "130",
+            1233
+          ],
+          [
+            "83",
+            447
+          ],
+          [
+            "51",
+            364
+          ],
+          [
+            "55",
+            326
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 3,
+        "missing": 19922,
+        "top_values": [
+          [
+            "529",
+            3500
+          ],
+          [
+            "599",
+            1459
+          ],
+          [
+            "539",
+            36
+          ]
+        ]
+      },
+      "Condition": {
+        "distinct_nonmissing": 8,
+        "missing": 2129,
+        "top_values": [
+          [
+            "R",
+            17775
+          ],
+          [
+            "X",
+            2676
+          ],
+          [
+            "O",
+            1833
+          ],
+          [
+            "B",
+            259
+          ],
+          [
+            "S",
+            226
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 595,
+        "missing": 0,
+        "top_values": [
+          [
+            "TUBE",
+            1247
+          ],
+          [
+            "FAN-STG 1 BLADE",
+            994
+          ],
+          [
+            "HARNESS",
+            953
+          ],
+          [
+            "VANE",
+            948
+          ],
+          [
+            "BLADE",
+            716
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24917,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 129,
+        "missing": 0,
+        "top_values": [
+          [
+            "58828",
+            12520
+          ],
+          [
+            "F0301",
+            6141
+          ],
+          [
+            "51563",
+            2166
+          ],
+          [
+            "062W0",
+            1143
+          ],
+          [
+            "59364",
+            483
+          ]
+        ]
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24917,
+        "top_values": [],
+        "valid": 0
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 164,
+        "missing": 18931,
+        "top_values": [
+          [
+            "267067",
+            380
+          ],
+          [
+            "5381291",
+            214
+          ],
+          [
+            "266623",
+            207
+          ],
+          [
+            "266390",
+            201
+          ],
+          [
+            "5378735",
+            188
+          ]
+        ]
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            10049
+          ],
+          [
+            "CORE",
+            5746
+          ],
+          [
+            "FAN",
+            3431
+          ],
+          [
+            "QEC / LRU",
+            3301
+          ],
+          [
+            "LPT",
+            2248
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 397,
+        "invalid": 0,
+        "maximum": "2023-08-24",
+        "minimum": "2002-10-24",
+        "missing": 22731,
+        "top_values": [
+          [
+            "8/10/2023",
+            76
+          ],
+          [
+            "7/17/2023",
+            71
+          ],
+          [
+            "7/12/2023",
+            62
+          ],
+          [
+            "6/21/2023",
+            48
+          ],
+          [
+            "8/16/2023",
+            46
+          ]
+        ],
+        "valid": 2186
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 24917,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 2957,
+        "missing": 0,
+        "top_values": [
+          [
+            "338-002-114-0",
+            994
+          ],
+          [
+            "121664-8",
+            227
+          ],
+          [
+            "338-108-608-0",
+            194
+          ],
+          [
+            "338-110-103-0",
+            165
+          ],
+          [
+            "6840023M1",
+            148
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 302,
+        "missing": 0,
+        "top_values": [
+          [
+            "266429",
+            507
+          ],
+          [
+            "266980",
+            456
+          ],
+          [
+            "267123",
+            449
+          ],
+          [
+            "265943",
+            440
+          ],
+          [
+            "267246",
+            413
+          ]
+        ]
+      },
+      "QTY": {
+        "distinct_nonmissing": 112,
+        "invalid": 0,
+        "maximum": "193",
+        "minimum": "-9",
+        "missing": 0,
+        "negative": 1,
+        "top_values": [
+          [
+            "1",
+            19071
+          ],
+          [
+            "2",
+            2281
+          ],
+          [
+            "3",
+            426
+          ],
+          [
+            "4",
+            365
+          ],
+          [
+            "5",
+            232
+          ]
+        ],
+        "zero": 4
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 4721,
+        "missing": 16512,
+        "top_values": [
+          [
+            "9522151",
+            80
+          ],
+          [
+            "9520229",
+            80
+          ],
+          [
+            "9520452",
+            45
+          ],
+          [
+            "9523096",
+            36
+          ],
+          [
+            "9524174",
+            36
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 1280,
+        "invalid": 0,
+        "maximum": "160832.7",
+        "minimum": "0",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "0",
+            21678
+          ],
+          [
+            "228.8",
+            110
+          ],
+          [
+            "1333",
+            100
+          ],
+          [
+            "7658.7",
+            93
+          ],
+          [
+            "750",
+            86
+          ]
+        ],
+        "zero": 21678
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 842,
+        "invalid": 0,
+        "maximum": "81631.78",
+        "minimum": "0",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "0",
+            21678
+          ],
+          [
+            "228.8",
+            116
+          ],
+          [
+            "1333",
+            100
+          ],
+          [
+            "7658.7",
+            94
+          ],
+          [
+            "750",
+            86
+          ]
+        ],
+        "zero": 21678
+      },
+      "SN": {
+        "distinct_nonmissing": 8784,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            15817
+          ],
+          [
+            "N/A",
+            31
+          ],
+          [
+            "NSI9000001",
+            30
+          ],
+          [
+            "N/S/N",
+            23
+          ],
+          [
+            "308",
+            4
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            13531
+          ],
+          [
+            "Airfoils",
+            6384
+          ],
+          [
+            "HVM",
+            4248
+          ],
+          [
+            "LLPs",
+            612
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 24683,
+        "missing": 0,
+        "top_values": [
+          [
+            "MH3577",
+            16
+          ],
+          [
+            "ABF237",
+            3
+          ],
+          [
+            "ADB55",
+            2
+          ],
+          [
+            "ABA592",
+            2
+          ],
+          [
+            "MH819",
+            2
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Inventory",
+            24917
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 0,
+        "missing": 24917,
+        "top_values": []
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 24917,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 315,
+        "missing": 142,
+        "top_values": [
+          [
+            "Non-HVM",
+            9746
+          ],
+          [
+            "Fan Blade, Stg 1",
+            1130
+          ],
+          [
+            "Acoustical Aft Panel",
+            320
+          ],
+          [
+            "Engine Teardown",
+            303
+          ],
+          [
+            "HPT Blade",
+            289
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 8,
+        "missing": 2,
+        "top_values": [
+          [
+            "MDT",
+            17581
+          ],
+          [
+            "HAJ",
+            4719
+          ],
+          [
+            "WDL",
+            2528
+          ],
+          [
+            "SGP",
+            39
+          ],
+          [
+            "SRT",
+            24
+          ]
+        ]
+      }
+    },
+    "Invoiced": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 164,
+        "invalid": 0,
+        "maximum": "131638",
+        "minimum": "2",
+        "missing": 59,
+        "negative": 0,
+        "top_values": [
+          [
+            "130",
+            940
+          ],
+          [
+            "90",
+            726
+          ],
+          [
+            "150",
+            392
+          ],
+          [
+            "83",
+            249
+          ],
+          [
+            "97",
+            209
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      },
+      "Condition": {
+        "distinct_nonmissing": 7,
+        "missing": 202,
+        "top_values": [
+          [
+            "O",
+            5518
+          ],
+          [
+            "R",
+            1060
+          ],
+          [
+            "S",
+            556
+          ],
+          [
+            "A",
+            127
+          ],
+          [
+            "B",
+            38
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 317,
+        "missing": 0,
+        "top_values": [
+          [
+            "FAN-STG 1 BLADE",
+            749
+          ],
+          [
+            "NOZZLE",
+            360
+          ],
+          [
+            "VANE",
+            340
+          ],
+          [
+            "BLADE",
+            281
+          ],
+          [
+            "HARNESS",
+            248
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 1603,
+        "invalid": 0,
+        "maximum": "923000",
+        "minimum": "-185000",
+        "missing": 0,
+        "negative": 261,
+        "top_values": [
+          [
+            "3800",
+            286
+          ],
+          [
+            "25",
+            213
+          ],
+          [
+            "15800",
+            177
+          ],
+          [
+            "18000",
+            149
+          ],
+          [
+            "500",
+            146
+          ]
+        ],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 617,
+        "invalid": 0,
+        "maximum": "2023-08-29",
+        "minimum": "2021-02-05",
+        "missing": 0,
+        "top_values": [
+          [
+            "10/31/2022",
+            235
+          ],
+          [
+            "1/7/2022",
+            152
+          ],
+          [
+            "12/21/2021",
+            143
+          ],
+          [
+            "8/14/2023",
+            119
+          ],
+          [
+            "8/25/2022",
+            108
+          ]
+        ],
+        "valid": 7537
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 7,
+        "top_values": [
+          [
+            "CORE",
+            2516
+          ],
+          [
+            "QEC / LRU",
+            2170
+          ],
+          [
+            "FAN",
+            1508
+          ],
+          [
+            "LPT",
+            673
+          ],
+          [
+            "Non-HVM",
+            663
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 733,
+        "invalid": 0,
+        "maximum": "2023-08-24",
+        "minimum": "0222-02-17",
+        "missing": 1280,
+        "top_values": [
+          [
+            "7/13/2022",
+            79
+          ],
+          [
+            "11/19/2021",
+            75
+          ],
+          [
+            "10/31/2022",
+            67
+          ],
+          [
+            "10/13/2021",
+            56
+          ],
+          [
+            "1/5/2023",
+            56
+          ]
+        ],
+        "valid": 6257
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 993,
+        "missing": 0,
+        "top_values": [
+          [
+            "338-002-114-0",
+            749
+          ],
+          [
+            "1317M47G18",
+            222
+          ],
+          [
+            "338-067-014-0",
+            114
+          ],
+          [
+            "121664-8",
+            108
+          ],
+          [
+            "1893M42G04",
+            106
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      },
+      "QTY": {
+        "distinct_nonmissing": 126,
+        "invalid": 0,
+        "maximum": "159",
+        "minimum": "-48",
+        "missing": 0,
+        "negative": 261,
+        "top_values": [
+          [
+            "1",
+            5210
+          ],
+          [
+            "2",
+            441
+          ],
+          [
+            "3",
+            189
+          ],
+          [
+            "-1",
+            161
+          ],
+          [
+            "4",
+            140
+          ]
+        ],
+        "zero": 0
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 3233,
+        "missing": 1160,
+        "top_values": [
+          [
+            "9520876",
+            39
+          ],
+          [
+            "9500785",
+            37
+          ],
+          [
+            "9514767",
+            36
+          ],
+          [
+            "9499776",
+            36
+          ],
+          [
+            "9516584",
+            36
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 2584,
+        "invalid": 0,
+        "maximum": "450078.99",
+        "minimum": "-72875.6",
+        "missing": 0,
+        "negative": 155,
+        "top_values": [
+          [
+            "0",
+            1331
+          ],
+          [
+            "1220",
+            185
+          ],
+          [
+            "1129",
+            168
+          ],
+          [
+            "1900",
+            142
+          ],
+          [
+            "1750",
+            99
+          ]
+        ],
+        "zero": 1331
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 1703,
+        "invalid": 0,
+        "maximum": "450078.99",
+        "minimum": "-72875.6",
+        "missing": 0,
+        "negative": 155,
+        "top_values": [
+          [
+            "0",
+            1331
+          ],
+          [
+            "1220",
+            185
+          ],
+          [
+            "1129",
+            168
+          ],
+          [
+            "1900",
+            142
+          ],
+          [
+            "145",
+            127
+          ]
+        ],
+        "zero": 1331
+      },
+      "SN": {
+        "distinct_nonmissing": 3832,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            3511
+          ],
+          [
+            "DB993371",
+            5
+          ],
+          [
+            "DB993379",
+            5
+          ],
+          [
+            "6104",
+            4
+          ],
+          [
+            "6406B",
+            4
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 7,
+        "top_values": [
+          [
+            "Airfoils",
+            3349
+          ],
+          [
+            "HVM",
+            2591
+          ],
+          [
+            "Non-HVM",
+            1427
+          ],
+          [
+            "LLPs",
+            163
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 6949,
+        "missing": 0,
+        "top_values": [
+          [
+            "TO0039",
+            11
+          ],
+          [
+            "AL1287",
+            6
+          ],
+          [
+            "JI0944",
+            6
+          ],
+          [
+            "2E1148",
+            5
+          ],
+          [
+            "MH2866",
+            5
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Invoiced",
+            7537
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 73,
+        "missing": 0,
+        "top_values": [
+          [
+            "UNITED STATES",
+            3229
+          ],
+          [
+            "CANADA",
+            700
+          ],
+          [
+            "UNITED KINGDOM",
+            405
+          ],
+          [
+            "CHINA PEOPLES REPUB",
+            346
+          ],
+          [
+            "GERMANY",
+            333
+          ]
+        ]
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 827,
+        "invalid": 0,
+        "maximum": "595000",
+        "minimum": "-185000",
+        "missing": 0,
+        "negative": 261,
+        "top_values": [
+          [
+            "3800",
+            290
+          ],
+          [
+            "25",
+            216
+          ],
+          [
+            "500",
+            183
+          ],
+          [
+            "15800",
+            177
+          ],
+          [
+            "5000",
+            159
+          ]
+        ],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 290,
+        "missing": 7,
+        "top_values": [
+          [
+            "Fan Blade, Stg 1",
+            914
+          ],
+          [
+            "Non-HVM",
+            661
+          ],
+          [
+            "Fuel Nozzle",
+            392
+          ],
+          [
+            "HPC Blade, Stg 9",
+            138
+          ],
+          [
+            "HPC Blade, Stg 8",
+            136
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 0,
+        "missing": 7537,
+        "top_values": []
+      }
+    },
+    "Scrapped": {
+      "AvgNoofSalesDays": {
+        "distinct_nonmissing": 73,
+        "invalid": 0,
+        "maximum": "813",
+        "minimum": "2",
+        "missing": 46,
+        "negative": 0,
+        "top_values": [
+          [
+            "90",
+            3039
+          ],
+          [
+            "89",
+            132
+          ],
+          [
+            "97",
+            125
+          ],
+          [
+            "110",
+            117
+          ],
+          [
+            "83",
+            114
+          ]
+        ],
+        "zero": 0
+      },
+      "BackLog": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Condition": {
+        "distinct_nonmissing": 2,
+        "missing": 0,
+        "top_values": [
+          [
+            "R",
+            2968
+          ],
+          [
+            "X",
+            1581
+          ]
+        ]
+      },
+      "Description": {
+        "distinct_nonmissing": 100,
+        "missing": 0,
+        "top_values": [
+          [
+            "TUBE",
+            1404
+          ],
+          [
+            "BLADE",
+            836
+          ],
+          [
+            "TUBE ASSY",
+            482
+          ],
+          [
+            "HOSE",
+            446
+          ],
+          [
+            "MANIFOLD",
+            184
+          ]
+        ]
+      },
+      "Extended Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "FSC": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Invoice Date": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "top_values": [],
+        "valid": 0
+      },
+      "Misc_PONO": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Module": {
+        "distinct_nonmissing": 5,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3004
+          ],
+          [
+            "CORE",
+            1213
+          ],
+          [
+            "FAN",
+            169
+          ],
+          [
+            "LPT",
+            138
+          ],
+          [
+            "QEC / LRU",
+            25
+          ]
+        ]
+      },
+      "OH_DATE": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "top_values": [],
+        "valid": 0
+      },
+      "OrderNo": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "PART": {
+        "distinct_nonmissing": 1134,
+        "missing": 0,
+        "top_values": [
+          [
+            "P263G01",
+            22
+          ],
+          [
+            "9992M65G08",
+            21
+          ],
+          [
+            "P262G01",
+            21
+          ],
+          [
+            "P333P03",
+            20
+          ],
+          [
+            "P338P06",
+            19
+          ]
+        ]
+      },
+      "PO_No": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "QTY": {
+        "distinct_nonmissing": 68,
+        "invalid": 0,
+        "maximum": "119",
+        "minimum": "1",
+        "missing": 0,
+        "negative": 0,
+        "top_values": [
+          [
+            "1",
+            3548
+          ],
+          [
+            "2",
+            368
+          ],
+          [
+            "3",
+            76
+          ],
+          [
+            "4",
+            48
+          ],
+          [
+            "6",
+            43
+          ]
+        ],
+        "zero": 0
+      },
+      "Rep Order No": {
+        "distinct_nonmissing": 950,
+        "missing": 3011,
+        "top_values": [
+          [
+            "9508253",
+            8
+          ],
+          [
+            "9508244",
+            8
+          ],
+          [
+            "9513010",
+            7
+          ],
+          [
+            "9509113",
+            7
+          ],
+          [
+            "9504654",
+            7
+          ]
+        ]
+      },
+      "Repair Ext Cost": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Repair Unit Cost": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "SN": {
+        "distinct_nonmissing": 354,
+        "missing": 0,
+        "top_values": [
+          [
+            "NSI",
+            4195
+          ],
+          [
+            "N/S/N",
+            2
+          ],
+          [
+            ".",
+            1
+          ],
+          [
+            "11914",
+            1
+          ],
+          [
+            "XAEDV139",
+            1
+          ]
+        ]
+      },
+      "SubType": {
+        "distinct_nonmissing": 4,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3108
+          ],
+          [
+            "Airfoils",
+            1021
+          ],
+          [
+            "HVM",
+            284
+          ],
+          [
+            "LLPs",
+            136
+          ]
+        ]
+      },
+      "TAG_NO": {
+        "distinct_nonmissing": 4549,
+        "missing": 0,
+        "top_values": [
+          [
+            "TV0067",
+            1
+          ],
+          [
+            "FS0207",
+            1
+          ],
+          [
+            "FX1898",
+            1
+          ],
+          [
+            "FE0302",
+            1
+          ],
+          [
+            "FK0831",
+            1
+          ]
+        ]
+      },
+      "Type": {
+        "distinct_nonmissing": 1,
+        "missing": 0,
+        "top_values": [
+          [
+            "Scrapped",
+            4549
+          ]
+        ]
+      },
+      "Ultimate_Destination_Country": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      },
+      "Unit Sales Price": {
+        "distinct_nonmissing": 0,
+        "invalid": 0,
+        "maximum": null,
+        "minimum": null,
+        "missing": 4549,
+        "negative": 0,
+        "top_values": [],
+        "zero": 0
+      },
+      "Updated_Description": {
+        "distinct_nonmissing": 107,
+        "missing": 0,
+        "top_values": [
+          [
+            "Non-HVM",
+            3001
+          ],
+          [
+            "HPC Blade, Stg 8",
+            132
+          ],
+          [
+            "HPC Blade, Stg 5",
+            117
+          ],
+          [
+            "HPC Blade, Stg 6",
+            114
+          ],
+          [
+            "HPC Blade, Stg 7",
+            112
+          ]
+        ]
+      },
+      "WHSE": {
+        "distinct_nonmissing": 0,
+        "missing": 4549,
+        "top_values": []
+      }
+    }
+  },
+  "quarantine": [
+    {
+      "raw_rows": [
+        [
+          "Invoiced",
+          "1317M47G18",
+          "6/3/2022",
+          "PHC93J68",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "NOZZLE",
+          "O",
+          "GA2628",
+          "NULL",
+          "4/28/2022",
+          "1300679",
+          "NULL",
+          "1900",
+          "1900",
+          "3800",
+          "3800",
+          "NULL",
+          "NULL",
+          "NULL",
+          "NULL",
+          "UNITED STATES",
+          "Fuel Nozzle",
+          "QEC / LRU",
+          "HVM",
+          "150",
+          "1624.499708",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "reason": "ambiguous_split",
+      "source_records": [
+        4723,
+        4724
+      ]
+    },
+    {
+      "raw_rows": [
+        [
+          "Invoiced",
+          "1317M47G18",
+          "6/3/2022",
+          "PAT9906A",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "NOZZLE",
+          "O",
+          "GA2633",
+          "NULL",
+          "4/28/2022",
+          "1300679",
+          "NULL",
+          "1900",
+          "1900",
+          "3800",
+          "3800",
+          "NULL",
+          "NULL",
+          "NULL",
+          "NULL",
+          "UNITED STATES",
+          "Fuel Nozzle",
+          "QEC / LRU",
+          "HVM",
+          "150",
+          "1624.499708",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "reason": "ambiguous_split",
+      "source_records": [
+        4733,
+        4734
+      ]
+    }
+  ],
+  "raw_source_unchanged": true,
+  "reconstruction_examples": [
+    {
+      "recovery": "split_missing_condition",
+      "source_records": [
+        61,
+        62
+      ],
+      "unlabelled_tail": "NULL",
+      "values": {
+        "AvgNoofSalesDays": "90",
+        "BackLog": "NULL",
+        "Condition": "",
+        "Description": "NUT PLAIN",
+        "Extended Sales Price": "225",
+        "FSC": "NULL",
+        "Invoice Date": "8/24/2023",
+        "Misc_PONO": "NULL",
+        "Module": "Non-HVM",
+        "OH_DATE": "4/14/2021",
+        "OrderNo": "NULL",
+        "PART": "9725M79P05",
+        "PO_No": "NULL",
+        "QTY": "1",
+        "Rep Order No": "NULL",
+        "Repair Ext Cost": "0",
+        "Repair Unit Cost": "0",
+        "SN": "NSI",
+        "SubType": "Non-HVM",
+        "TAG_NO": "MH1731",
+        "Type": "Invoiced",
+        "Ultimate_Destination_Country": "NORWAY",
+        "Unit Sales Price": "225",
+        "Updated_Description": "Non-HVM",
+        "WHSE": "NULL"
+      }
+    },
+    {
+      "recovery": "split_missing_condition",
+      "source_records": [
+        174,
+        175
+      ],
+      "unlabelled_tail": "NULL",
+      "values": {
+        "AvgNoofSalesDays": "90",
+        "BackLog": "NULL",
+        "Condition": "",
+        "Description": "BOX-JUNTION",
+        "Extended Sales Price": "6500",
+        "FSC": "NULL",
+        "Invoice Date": "7/26/2022",
+        "Misc_PONO": "NULL",
+        "Module": "Non-HVM",
+        "OH_DATE": "6/30/2022",
+        "OrderNo": "NULL",
+        "PART": "338-020-706-0",
+        "PO_No": "NULL",
+        "QTY": "1",
+        "Rep Order No": "9511471",
+        "Repair Ext Cost": "6031.19",
+        "Repair Unit Cost": "6031.19",
+        "SN": "NSI",
+        "SubType": "Non-HVM",
+        "TAG_NO": "JI0905",
+        "Type": "Invoiced",
+        "Ultimate_Destination_Country": "CHINA PEOPLES REPUB",
+        "Unit Sales Price": "6500",
+        "Updated_Description": "Non-HVM",
+        "WHSE": "NULL"
+      }
+    },
+    {
+      "recovery": "split_missing_condition",
+      "source_records": [
+        177,
+        178
+      ],
+      "unlabelled_tail": "0.35431",
+      "values": {
+        "AvgNoofSalesDays": "90",
+        "BackLog": "NULL",
+        "Condition": "",
+        "Description": "BOX-JUNTION",
+        "Extended Sales Price": "6500",
+        "FSC": "NULL",
+        "Invoice Date": "3/13/2023",
+        "Misc_PONO": "NULL",
+        "Module": "Non-HVM",
+        "OH_DATE": "6/30/2022",
+        "OrderNo": "NULL",
+        "PART": "338-020-706-0",
+        "PO_No": "NULL",
+        "QTY": "1",
+        "Rep Order No": "9511469",
+        "Repair Ext Cost": "5096.57",
+        "Repair Unit Cost": "5096.57",
+        "SN": "NSI",
+        "SubType": "Non-HVM",
+        "TAG_NO": "DF6298",
+        "Type": "Invoiced",
+        "Ultimate_Destination_Country": "UNITED STATES",
+        "Unit Sales Price": "6500",
+        "Updated_Description": "Non-HVM",
+        "WHSE": "NULL"
+      }
+    }
+  ],
+  "recovered_controls": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 2129,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "5903",
+        "sum": "5903",
+        "valid_records": 2129
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "619790.57",
+        "sum": "619790.57",
+        "valid_records": 2129
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "555313.99",
+        "sum": "555313.99",
+        "valid_records": 2129
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 2129,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 2129
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-7300",
+        "positive_sum": "1386200",
+        "sum": "1378900",
+        "valid_records": 202
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-3",
+        "positive_sum": "625",
+        "sum": "622",
+        "valid_records": 202
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-4345.89",
+        "positive_sum": "768340.18",
+        "sum": "763994.29",
+        "valid_records": 202
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-4345.89",
+        "positive_sum": "679696.59996",
+        "sum": "675350.70996",
+        "valid_records": 202
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-7300",
+        "positive_sum": "1203275.5",
+        "sum": "1195975.5",
+        "valid_records": 202
+      },
+      "records": 202
+    }
+  },
+  "recovered_status_counts": {
+    "Inventory": 2129,
+    "Invoiced": 202
+  },
+  "source_controls_complete_records": {
+    "Inventory": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 22788,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-9",
+        "positive_sum": "99974",
+        "sum": "99965",
+        "valid_records": 22788
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "9978277.73",
+        "sum": "9978277.73",
+        "valid_records": 22788
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "6955756.95",
+        "sum": "6955756.95",
+        "valid_records": 22788
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 22788,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 22788
+    },
+    "Invoiced": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-2508472.83",
+        "positive_sum": "129018750.10",
+        "sum": "126510277.27",
+        "valid_records": 7335
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-1298",
+        "positive_sum": "34897",
+        "sum": "33599",
+        "valid_records": 7335
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-893616.36",
+        "positive_sum": "31367817.22",
+        "sum": "30474200.86",
+        "valid_records": 7335
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-698559.34578",
+        "positive_sum": "20107906.66863",
+        "sum": "19409347.32285",
+        "valid_records": 7335
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 0,
+        "negative_sum": "-1992747.73",
+        "positive_sum": "80547552.94",
+        "sum": "78554805.21",
+        "valid_records": 7335
+      },
+      "records": 7335
+    },
+    "Scrapped": {
+      "Extended Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "QTY": {
+        "missing_or_invalid": 0,
+        "negative_sum": "0",
+        "positive_sum": "16531",
+        "sum": "16531",
+        "valid_records": 4549
+      },
+      "Repair Ext Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Repair Unit Cost": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "Unit Sales Price": {
+        "missing_or_invalid": 4549,
+        "negative_sum": "0",
+        "positive_sum": "0",
+        "sum": null,
+        "valid_records": 0
+      },
+      "records": 4549
+    }
+  },
+  "source_name": "Case_Study_Dataset.csv",
+  "source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3",
+  "version": "audit-v3-oh-overhaul"
+}

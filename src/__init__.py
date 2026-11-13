@@ -1,0 +1,1 @@
+"""Parts inventory data pipeline."""

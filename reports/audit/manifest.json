@@ -1,0 +1,13 @@
+{
+  "outputs_sha256": {
+    "AUDIT_REPORT.md": "89259c1f223815619a064ef404acffee6d409aafcd04ae79a67399718f36c3e1",
+    "audit.json": "1b696f1386486ee505525506a662a51b8409cde293a39bed3cf62c6fc599db67",
+    "audit_records.csv": "43b98b44eb978e981c7d8dfd5d30846eddf778a395a3cc4d708bba917742823f",
+    "calculation_records.csv": "5c2cc2b8aa754a3517c1a514dd68fb032f0fb7726f1ccd61c5a376d5739c4814",
+    "duplicate_candidates.csv": "39acfc71a2b6720b1c0887baab4915fbbc475964f2399a2654b52399c1d12cf7",
+    "quarantine.jsonl": "3d22ad71bed7c4e70c9fe9d4b82f885b7bf2028ea5f781644d05184e867a9552",
+    "reconstructions.jsonl": "d9971c4ae2ff9e089647935948da74c798a92898dbae2ff96a6d3e8eca0c79d4"
+  },
+  "source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3",
+  "version": "audit-v3-oh-overhaul"
+}

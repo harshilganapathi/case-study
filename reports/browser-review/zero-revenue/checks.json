@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "sale_records": 5,
+      "status": "Review",
+      "contribution": "-50",
+      "percentage_margin": null
+    },
+    {
+      "sale_records": 10,
+      "status": "Review",
+      "contribution": "-100",
+      "percentage_margin": null
+    }
+  ],
+  "url": "http://127.0.0.1:8614/",
+  "default_review_parts_restored": 123,
+  "raw_source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3"
+}

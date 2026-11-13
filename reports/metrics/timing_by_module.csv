@@ -1,0 +1,6 @@
+module,observed_records,paired_records,median_observed_days,paired_median_observed_days,paired_median_expected_days,median_paired_difference_days,above_expected_records,above_expected_share,long_observed_records
+CORE,2262,2257,63,63,88,-19,757,0.3354009747452370403190075321,2
+FAN,1431,1431,83,83,130,-35,550,0.3843466107617051013277428372,0
+LPT,587,587,41,41,79,-23,184,0.3134582623509369676320272572,1
+Non-HVM,437,437,50,50,90,-40,135,0.3089244851258581235697940503,0
+QEC / LRU,1338,1338,49,49,114,-32,418,0.3124065769805680119581464873,0

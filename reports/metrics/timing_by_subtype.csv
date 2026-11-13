@@ -1,0 +1,5 @@
+subtype,observed_records,paired_records,median_observed_days,paired_median_observed_days,paired_median_expected_days,median_paired_difference_days,above_expected_records,above_expected_share,long_observed_records
+Airfoils,3110,3110,71,71,110,-27,1079,0.3469453376205787781350482315,1
+HVM,1950,1950,43.5,43.5,84,-23,629,0.3225641025641025641025641026,0
+LLPs,137,137,48,48,65,-17,43,0.3138686131386861313868613139,1
+Non-HVM,858,853,63,63,90,-27,293,0.3434935521688159437280187573,1

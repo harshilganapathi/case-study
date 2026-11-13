@@ -1,0 +1,2 @@
+﻿rank,part,status,on_hand_units,triggered_rules,reasons,eligible_sale_records,sales,repair_cost,repair_contribution,repair_margin,repair_evidence_supported,zero_cost_sale_records,zero_cost_sale_share,scrapped_units,sold_units,disposed_units,scrap_share,scrap_evidence_supported,outcome_records,warehouses,conditions,flagged_stock_records
+1,QA-ZERO,Review,1,1,"Repair costs exceed zero sales, contribution -50.00 across 5 eligible sale records",5,0,50,-50,,True,0,0,0,5,5,0,False,5,MDT,R,1
