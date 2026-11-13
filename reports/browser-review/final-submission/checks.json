@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-11-13T12:25:30.238744+00:00",
+  "application_source_sha256": "16b7ce6546345e65a446284838429fdeceed54456b57acd4770131e1c36a285b",
+  "source_files": [
+    "app.py",
+    "src/__init__.py",
+    "src/audit.py",
+    "src/clean.py",
+    "src/decision_support.py",
+    "src/economics.py",
+    "src/ingest.py",
+    "src/metrics.py",
+    "src/presentation.py",
+    "src/scrap_model.py",
+    "src/timing.py"
+  ],
+  "readme_sha256": "1307c3a203a8a74775e4f65eca2fae23fd8010f556a0208e0745c2f6ba7a1d4c",
+  "readme_words": 623,
+  "tests_passed": 79,
+  "full_export_checks_passed": 35,
+  "browser_checks_passed": 44,
+  "captured_states": 42,
+  "targeted_checks": [
+    "final_numeric_calibration_chart_and_stock_scores",
+    "holdout_csv_matches_1753_exported_predictions_across_354_parts",
+    "financial_cards_at_1024_pixels"
+  ],
+  "timing_assumption_visible_on_open": true,
+  "page_errors": [],
+  "http_errors": [],
+  "server_tracebacks": 0,
+  "source_sha256": "45b1002418585e2e2d1193edd9d927dc3cc97b505b3ab5e310cb5e0637f7cfe3",
+  "passed": true
+}

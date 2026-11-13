@@ -54,7 +54,7 @@ def days(value):
 def column_label(column):
     return {'part': 'Part number', 'QTY': 'Quantity', 'sales': 'Sales amount',
             'roc_auc': 'ROC AUC', 'brier_score': 'Brier score', 'log_loss': 'Log loss',
-            'paired_median_observed_days': 'Median overhaul-to-sale days',
+            'paired_median_observed_days': 'Median overhaul-to-invoice days',
             'paired_median_expected_days': 'Median expected days'}.get(
                 column, column.replace('_', ' ').replace('--', ' ').title())
 
@@ -98,7 +98,7 @@ def bars(rows, x, y, limit=20):
             st.info('No usable values for this chart in the current selection.')
             return
         names = {k: column_label(k) for k in [x, *ys]}
-        names.update({k: v for k, v in {'paired_median_observed_days': 'Overhaul to sale',
+        names.update({k: v for k, v in {'paired_median_observed_days': 'Overhaul to invoice',
                                       'paired_median_expected_days': 'Expected'}.items() if k in ys})
         measure = ('Days' if any('days' in k for k in ys) else
                    'Amount (source currency)' if any(k in {'sales','repair_cost'} for k in ys) else 'Units')
@@ -156,7 +156,9 @@ st.sidebar.caption(f'Source: {filename}\n\nFingerprint: {quality["source_sha256"
 
 st.caption('AVIATION PARTS · INVENTORY DECISION SUPPORT')
 st.title(view)
-st.caption('Historical export · identical records count once · OH_DATE is assumed to be the overhaul date')
+st.caption('Historical export · identical records count once')
+st.write('**Timing assumption:** OH_DATE is treated as the overhaul date. Timing shows '
+         'overhaul-to-invoice days; current stock age and receipt-to-sale time are unknown.')
 with st.expander('Data quality and definitions', expanded=False):
     a = quality['accounting']
     st.write(f"{a['reconstructed_records']:,} split records recovered; "
@@ -175,7 +177,7 @@ if view == 'Overview':
     cols[0].metric('On-hand units', f"{totals['inventory_units']:,}")
     cols[1].metric('Observed scrap share', percent(totals['scrap_share']))
     cols[2].metric('Repair contribution margin', percent(repair['positive_sales']['margin']))
-    cols[3].metric('Median overhaul-to-sale', days(intervals['median_observed_days']))
+    cols[3].metric('Median overhaul-to-invoice', days(intervals['median_observed_days']))
     st.write('Start with the inventory available, examine historical outcomes, then use the review '
              'queue to decide which parts deserve a closer look.')
     st.subheader('Inventory by module')
@@ -242,7 +244,7 @@ elif view == 'Repair economics':
         table(repair['exclusions'], 'economics_exclusions')
 
 elif view == 'Inventory & timing':
-    stock_tab, timing_tab = st.tabs(['On hand', 'Overhaul to sale'])
+    stock_tab, timing_tab = st.tabs(['On hand', 'Overhaul to invoice'])
     with stock_tab:
         stock = [r for r in selected if r['Type'] == 'Inventory']
         left, right = st.columns(2)
@@ -261,8 +263,9 @@ elif view == 'Inventory & timing':
             table(stock, 'inventory_source_records')
             table(result['exclusions'], 'inventory_exclusions')
     with timing_tab:
-        st.write('Assumption: OH_DATE is the overhaul date. Overhaul-to-sale interval = invoice '
-                 'date − overhaul date, in calendar days. Warehouse and condition filters above '
+        st.write('Assumption: OH_DATE is the overhaul date. Overhaul-to-invoice interval = invoice '
+                 'date − overhaul date, in calendar days. Receipt-to-sale time and stock age are '
+                 'unknown. Warehouse and condition filters above '
                  'apply only to on-hand stock; sold records have no warehouse.')
         rows = dated(selected, 'timing')
         limit = st.number_input('Maximum expected days for comparisons', min_value=1, max_value=1000000,
@@ -270,7 +273,7 @@ elif view == 'Inventory & timing':
         result = timing.calculate(rows, limit)
         summary = result['summary']
         cols = st.columns(3)
-        cols[0].metric('Median overhaul-to-sale', days(summary['median_observed_days']))
+        cols[0].metric('Median overhaul-to-invoice', days(summary['median_observed_days']))
         cols[1].metric('Median paired difference', days(summary['median_paired_difference_days']))
         cols[2].metric('Above supplied expectation', percent(summary['above_expected_share']))
         st.caption(f"{summary['observed_records']:,} usable intervals / "
@@ -293,8 +296,8 @@ elif view == 'Inventory & timing':
                            + ' All paired records remain in statistics and downloads.')
                 if focused:
                     scatter = frame(focused).rename(columns={'expected_days': 'Expected days',
-                                                             'observed_days': 'Overhaul-to-sale days'})
-                    st.scatter_chart(scatter, x='Expected days', y='Overhaul-to-sale days', height=340)
+                                                             'observed_days': 'Overhaul-to-invoice days'})
+                    st.scatter_chart(scatter, x='Expected days', y='Overhaul-to-invoice days', height=340)
         with st.expander('Intervals and excluded records'):
             table(result['details'], 'timing_details')
             table(result['observed_exclusions'], 'timing_exclusions')

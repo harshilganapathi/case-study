@@ -52,6 +52,14 @@ Added the smoothed Module/SubType outcome-record model, a seventh view, category
 
 The 44-check Chrome sequence passed after adding the view. Final targeted checks verified the numeric calibration chart, downloaded all held-out predictions, and rechecked financial cards at 1,024 pixels. Browser JavaScript/HTTP errors and server tracebacks were absent. The new view is an experimental classifier of completed outcome records, not a calibrated future lifecycle probability. See `metrics/SCRAP_MODEL_EXPLAINED.md` for weighting, formulas, evaluation and limits.
 
+## Final submission recheck after README trim
+
+The root README was reduced to 623 words; extended setup and screenshots moved to `docs/SETUP.md` and `docs/SCREENSHOTS.md`. The app now displays the OH_DATE assumption directly beneath every view title and labels timing as overhaul-to-invoice, explicitly separating it from stock age and receipt-to-sale time.
+
+On this final application code, the submitting agent reran all **79 tests**, **35 full-export checks**, and the complete **44-check Chrome sequence** with **42 captured states** and two CSV downloads. Three targeted checks also passed: the final model chart/stock view, held-out prediction download, and financial cards at 1,024 pixels. The visible timing assumption was checked on initial load. Overview and timing captures were visually inspected; all ten selected screenshots were refreshed. JavaScript/HTTP errors and server tracebacks were absent.
+
+`browser-review/final-submission/checks.json` records this run, including hashes of the checked application/source and README. These are checks performed on the final version, rather than claims carried forward from an earlier build. Full captures remain local under `.cache/final-submission-review/`.
+
 ## Evidence and reproduction
 
 - `screenshots/`: ten selected full-resolution screenshots, including the new baseline view, included in the submission ZIP.

@@ -91,7 +91,7 @@ def run(url, output, headed=False):
             view('Inventory & timing'); shot('inventory-module')
             for group in ['subtype','warehouse','condition','part']:
                 choose('Group stock by',group); shot('inventory-'+group)
-            page.get_by_role('tab',name='Overhaul to sale',exact=True).click(); shot('timing-module')
+            page.get_by_role('tab',name='Overhaul to invoice',exact=True).click(); shot('timing-module')
             page.get_by_test_id('stCheckbox').filter(has_text='Show full interval range').click()
             shot('timing-full-range')
             for group in ['subtype','module_subtype']:

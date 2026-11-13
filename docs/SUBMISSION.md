@@ -2,7 +2,7 @@
 
 ## Run
 
-Requires Python 3.11+ with `venv` and `pip`. Extract the ZIP or clone the repository, enter its directory, and run **`./run.sh`** on macOS/Linux. It creates the environment, installs pinned direct dependencies, and starts http://localhost:8501. First installation needs PyPI access. [Windows instructions and screenshots](../README.md) are in the expanded README.
+Requires Python 3.11+ with `venv` and `pip`. Extract the ZIP or clone the repository, enter its directory, and run **`./run.sh`** on macOS/Linux. It creates the environment, installs pinned direct dependencies, and starts http://localhost:8501. First installation needs PyPI access. [Windows instructions](SETUP.md) and [screenshots](SCREENSHOTS.md) are available separately.
 
 The supplied CSV loads automatically. Upload a same-schema replacement in the sidebar or set `PARTS_DATA_PATH`. No account, external API, or AI service is used at runtime.
 
