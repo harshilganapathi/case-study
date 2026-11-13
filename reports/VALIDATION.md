@@ -8,7 +8,7 @@ The final zero-revenue regression used a fresh app process on **http://127.0.0.1
 
 | Check | Result |
 | --- | --- |
-| Automated Python and Streamlit AppTest suite | **65 passed, zero skipped** |
+| Automated Python and Streamlit AppTest suite | **67 passed, zero skipped**, including two HTTP middleware regressions |
 | Full supplied-export behavioral checks | **31 passed** |
 | Real-browser capture sequence | **39 checks passed**, including 38 captured UI states and a CSV download |
 | JavaScript page errors during the successful capture run | **None** |
@@ -28,13 +28,21 @@ The final zero-revenue regression used a fresh app process on **http://127.0.0.1
 - Changed additive sales/cost and timing comparisons to side-by-side bars. Ordered bars by value so top-part charts read from largest down.
 - Changed financial summary cards to two rows: full amounts now remain readable in a narrower desktop window.
 - Displayed each selected part’s complete review reasons outside the horizontally scrollable table, with supporting history counts and stock locations.
-- Added a labeled 0–1,000-day focus for the timing scatterplot, plus a full-range checkbox. All eligible records remain in statistics and CSV exports. The default focus shows 6,047 of 6,050 paired records.
+- Added a labeled 0–1,000-day focus for the timing scatterplot, plus a full-range checkbox. All eligible records remain in statistics and CSV exports.
 - Removed the duplicate empty-queue message and disabled the full-queue download when no stock matches.
 - Added regression tests for readable review reasons and unchanged statistics when switching chart focus.
 
 The presentation changes leave the underlying quantity and financial calculations unchanged. The final review-queue correction additionally flags supported zero-revenue histories with negative contribution, while keeping percentage margin unavailable. Regression fixtures cover five and ten such sale records, insufficient history, and zero-revenue histories without losses.
 
 The final input-format regression accepts canonical YYYY-MM-DD dates alongside M/D/YYYY. Invoice-date controls share the timing calculation's normalized-date/audit-flag policy, so invalid or noncanonical preserved text cannot enter date-filtered totals. The original supplied-export quantities and financial totals remain unchanged.
+
+## HTTP runtime recheck — November 13, 2026
+
+Streamlit 1.57.0 with Starlette 1.10.0 could send an image or precompressed response body without its response-start headers. Two new middleware tests reproduced the failure. Streamlit 1.62.0 uses the upstream native gzip handling and passes both tests; the tested Starlette version is pinned alongside it. See the [upstream change](https://github.com/streamlit/streamlit/pull/16462).
+
+After upgrading and restarting the server, all 67 tests, 31 full-export checks, and the 39-check Chrome sequence passed. No JavaScript page errors or ASGI tracebacks were recorded in that run. Both localhost and 127.0.0.1 health endpoints returned HTTP 200. A stale imported helper in the old running process was cleared by restarting; no inventory calculation changes were needed.
+
+`browser-review/runtime/checks.json` records this recheck and installed versions. New captures remain local under `.cache/runtime-review/`; the nine selected submission screenshots are retained from the earlier visual review. The README was left unchanged.
 
 ## Evidence and reproduction
 

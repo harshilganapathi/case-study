@@ -1,2 +1,4 @@
-streamlit==1.57.0
+streamlit==1.62.0
 pandas==2.3.3
+# Keep the tested HTTP middleware version alongside Streamlit.
+starlette==1.10.0
