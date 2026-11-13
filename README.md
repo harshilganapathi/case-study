@@ -1,18 +1,14 @@
-# Parts Inventory Decision Support
+# Parts Inventory Case Study
 
-For the case-study evaluation, start with the [short submission notes](docs/SUBMISSION.md). This expanded README includes screenshots, results, and implementation detail.
+This is my Streamlit app for the aviation parts case study. It covers stock on hand, scrap outcomes, repair contribution, and how long sold parts took to move from overhaul to invoice. It also includes a queue of stocked parts to review.
 
-A local Streamlit application for reviewing aviation parts inventory, scrap outcomes, repair contribution, and historical sale timing. It turns a damaged CSV export into traceable calculations and a ranked list of stocked parts to inspect.
+The biggest issue was the export itself: some records were split across two rows, and others were duplicated. I kept the raw file unchanged and made the cleaning repeatable, with source references for the records that were recovered or excluded.
 
-Data repairs, calculation eligibility, and business assumptions are visible throughout. The app points a manager toward parts worth investigating; the available data cannot establish future scrap probability or an economically optimal repair decision.
+![App overview](reports/screenshots/overview.png)
 
-![Overview of inventory, observed scrap share, repair contribution, and data coverage](reports/screenshots/overview.png)
+## Run it
 
-[Run locally](#run-locally) · [Screenshots](#screenshots-and-walkthrough) · [Data decisions](#data-decisions) · [Review logic](#how-the-review-queue-works) · [Verification](#verification) · [Short submission notes](docs/SUBMISSION.md)
-
-## Run locally
-
-Requires **Python 3.11 or newer**, `venv`, and `pip`. On macOS or Linux:
+Requires **Python 3.11+**, `venv`, and `pip`. On macOS or Linux:
 
 ```sh
 git clone https://github.com/harshilganapathi/case-study.git
@@ -20,9 +16,20 @@ cd case-study
 ./run.sh
 ```
 
-Open **http://localhost:8501**. After cloning, `./run.sh` is the single launch command. It creates `.venv`, installs pinned direct dependencies on first use, and starts Streamlit. Initial installation needs PyPI access; subsequent launches reuse the environment.
+Open **http://localhost:8501**. The launcher creates a virtual environment and installs dependencies on the first run, which needs internet access. Later launches reuse that environment.
 
-On Windows, use PowerShell:
+The supplied CSV loads automatically. You can upload another export with the same schema in the sidebar, or run:
+
+```sh
+PARTS_DATA_PATH=/absolute/path/to/export.csv ./run.sh
+```
+
+The first load cleans and validates the file; later views reuse the cached data. **Reload source and clear cache** forces a refresh. The app runs locally without an account or an AI API.
+
+<details>
+<summary>Windows setup</summary>
+
+Run these commands in PowerShell:
 
 ```powershell
 py -m venv .venv
@@ -30,169 +37,136 @@ py -m venv .venv
 .\.venv\Scripts\python -m streamlit run app.py
 ```
 
-The supplied CSV loads automatically. Upload a same-schema replacement in the sidebar, or select another file at launch:
+</details>
 
-```sh
-PARTS_DATA_PATH=/absolute/path/to/export.csv ./run.sh
-```
+## What I found in the data
 
-The source is never edited. Source bytes and pipeline code determine the cleaning cache key; **Reload source and clear cache** forces a refresh. First load validates and cleans the export; later view changes reuse it. No account, external API, or AI service is used at runtime.
+The cleaning pipeline takes **39,338 raw rows** to **37,003 reconstructed/complete records**, then **36,752 records after removing 251 duplicate copies**. Two ambiguous pairs, covering four source rows, are quarantined.
 
-## What the supplied export shows
+The main decisions were:
 
-These are descriptive results after reconstruction and deduplication, not a live stock snapshot or a forecast. Monetary amounts use the source's unspecified currency.
+- **Split rows:** recover the 2,331 pairs that match the validated structure. Keep missing condition unknown and preserve the extra unlabelled value. The two ambiguous pairs remain excluded.
+- **Duplicates:** treat identical reconstructed records as duplicate export copies and count them once. Compare all source fields before normalization; a repeated part number alone is not a duplicate. This policy still needs business confirmation.
+- **Returns/credits:** keep negative-quantity invoices separate from positive-sale results.
+- **Missing costs:** leave them unknown. A reported zero stays zero, with coverage shown in the app.
+- **Missing classifications:** keep the records and display Unknown. Part numbers and serials stay strings.
 
-| Measure | Result | Interpretation |
-| --- | ---: | --- |
-| Positive inventory units | 105,643 | Whole positive Inventory quantities |
-| Positive sold units | 35,454 | Returns/credits reported separately |
-| Scrapped units | 16,531 | Observed scrapped quantities |
-| Observed scrap share | 31.80% | Scrapped / (scrapped + positive sold units) |
-| Positive-sale revenue | 129,530,115.10 | Extended amounts, counted once |
-| Repair contribution | 97,613,330.22 | Revenue minus repair cost; 75.36% margin |
-| Usable overhaul-to-sale intervals | 6,054 | Median 60 days; OH_DATE meaning is assumed |
-| Parts flagged for review | 123 | Of 2,957 stocked part numbers |
+The input contract is deliberately narrow: the exact 25-column header and unpadded Type labels (`Inventory`, `Invoiced`, `Scrapped`). Dates accept M/D/YYYY or YYYY-MM-DD. Unexpected structures are rejected or quarantined.
 
-CORE contributes 12,199 of the 16,531 scrapped units. Non-HVM has an 81.31% observed scrap share across 3,847 disposed units, warranting inspection of its mix and history. Meanwhile, **2,479 stocked part numbers (83.8%) lack minimum evidence under the queue's default rules**. Improving history coverage is a separate task from investigating the 123 flagged parts.
+The [audit report](reports/audit/AUDIT_REPORT.md) has the reconstruction rules, duplicate controls, source hashes, and exclusions.
 
-## Screenshots and walkthrough
+## What the numbers mean
 
-Screenshots use the supplied export. They show selected states; the [validation report](reports/VALIDATION.md) distinguishes automated checks, browser interaction, and visual inspection.
+| Measure | Definition | Supplied export |
+| --- | --- | ---: |
+| Inventory | Positive whole-number Inventory quantities | 105,643 units |
+| Scrap share | Scrapped units / (scrapped + positive sold units) | 31.80% |
+| Repair contribution | Extended sales − extended repair cost | 97,613,330.22 |
+| Contribution margin | Total contribution / total sales | 75.36% |
+| Overhaul-to-sale interval | Invoice date − assumed overhaul date | Median 60 days |
 
-### Scrap
+Scrap share excludes inventory and possible returns. It describes the outcomes in this export; it does not predict whether a part will be scrapped.
 
-Compare scrapped and positive sold units by module, subtype, their intersection, or part. Inspect denominators before interpreting a high share. Downloads retain quantities and record counts.
+For repair economics, I use extended amounts once and calculate margin from totals. Purchase cost, freight, and overhead are missing, so **repair contribution is not net profit**. Zero revenue has no percentage margin. Currency is unspecified; aggregation assumes the amounts are comparable.
 
-![Scrap breakdowns, observed shares, and frequently scrapped parts](reports/screenshots/scrap.png)
+For timing, **I assume OH_DATE means overhaul date**. Receipt dates are missing, so this measures overhaul-to-invoice time. It cannot tell us current stock age. The comparison uses `AvgNoofSalesDays`, whose starting point is also unconfirmed. Invalid dates and negative intervals are excluded; valid long intervals stay included and flagged.
 
-### Repair economics
+Two findings worth investigating: CORE accounts for **12,199 of the 16,531 scrapped units**, while Non-HVM has an **81.31% scrap share across 3,847 disposed units**. Both need the underlying part mix and history to interpret them.
 
-Compare extended sales against extended repair costs, then inspect weak or negative contribution. Possible credits, missing amounts, and reported zero repair costs remain visible. Adjust the margin threshold or filter by invoice date.
-
-![Repair contribution, cost coverage, and weak transactions](reports/screenshots/repair-economics.png)
-
-### Inventory and timing
-
-Break stock down by module, subtype, warehouse, and condition. Compare completed-sale intervals with the supplied expectation. The scatterplot defaults to a labeled 0–1,000-day focus; switching to full range changes the chart without changing statistics or exports.
-
-![Stock quantities and classification breakdowns](reports/screenshots/inventory.png)
-
-![Historical overhaul-to-sale intervals and expected-day comparisons](reports/screenshots/timing.png)
-
-### Review queue
-
-Select a flagged stocked part, read its complete reasons, then inspect history and stock locations. Switch queue groups to investigate insufficient evidence or supported histories without a triggered rule. The full queue can be exported with its evidence.
-
-![Ranked queue, editable rules, and selected-part evidence](reports/screenshots/review-queue.png)
-
-### Data quality
-
-Inspect how raw rows became calculation records, what was reconstructed, and what was excluded. Unknown classifications remain in totals and breakdowns.
-
-![Reconstruction, duplicate, quarantine, and data-quality information](reports/screenshots/data-quality.png)
-
-Additional captures show the [mobile overview](reports/screenshots/overview-mobile.png) and [financial cards at a narrower desktop width](reports/screenshots/repair-narrow-window.png). Wide detail tables scroll horizontally.
-
-## Data decisions
-
-**39,338 raw rows → 37,003 reconstructed/complete records → 36,752 records after removing 251 exact duplicate copies.** Two ambiguous pairs, comprising four source rows, remain quarantined.
-
-| Issue | Treatment and reason |
-| --- | --- |
-| Encoding/schema | Strict UTF-8, then strict Windows-1252. Require the exact header and Type labels (`Inventory`, `Invoiced`, `Scrapped`); even padded Type labels are quarantined. Quarantine unexpected row structures. |
-| Split records | Recover 2,331 pairs only when their structure satisfies the reconstruction rules. Preserve source references, missing condition, and the unlabelled continuation value. Do not guess ambiguous pairs. |
-| Exact duplicates | Assume identical reconstructed source records are repeated export copies. Count the first once; retain all copies in audit evidence. Compare every source field plus the unlabelled value before normalization. Part number alone never establishes a duplicate. |
-| Identifiers/categories | Preserve identifier strings, trim whitespace, keep supplied Non-HVM categories, and display missing classifications as Unknown. |
-| Signed quantities | Report negative-quantity invoices separately as possible returns/credits. Preserve nonpositive/fractional quantity exceptions. |
-| Missing versus zero | Missing cost stays unknown. Reported zero stays zero, with coverage shown for inspection. |
-| Dates | Accept M/D/YYYY and YYYY-MM-DD, flag invalid dates and negative intervals, and preserve valid observed intervals when their expectation is unusable. |
-
-The raw file is unchanged. [Audit evidence](reports/audit/AUDIT_REPORT.md) includes hashes, source-level reconstruction/duplicate records, quarantine, and the calculation population. Each metric applies its own eligibility rules: a missing date does not erase a valid stock quantity.
-
-## Calculation definitions
-
-**Scrap share:** positive scrapped units / (positive scrapped + positive sold units). Inventory has no observed disposal outcome; possible returns are separate. Overall share uses overall units, not an average of group percentages. It is an observed outcome share, not a cohort failure probability.
-
-**Repair contribution:** extended sales − extended repair cost. Aggregate margin = total contribution / total sales. Extended amounts already cover quantity and are not multiplied again. Missing purchase cost, freight, and overhead prevent a total-profit calculation. Zero revenue retains contribution but has no percentage margin. Conflicting signs and missing amounts enter exceptions. Grouping assumes comparable currency.
-
-**Inventory:** positive whole-number Inventory quantities. Module, subtype, warehouse, and condition are alternative breakdowns of the same stock total; do not add them together.
-
-**Timing:** invoice date − OH_DATE in calendar days, **assuming OH_DATE means overhaul date**. It is not receipt-to-sale time or current stock age. Exclude returns, invalid dates, and negative intervals. Compare paired records with `AvgNoofSalesDays`, whose origin and starting point are unknown. Expected days must be positive and at most 3,650 by default; unusable expectations do not remove valid observed intervals. Long intervals stay flagged and included. Each deduplicated transaction counts once.
-
-The median individual observed-minus-expected difference is **−25 days across 6,050 paired records**. This differs from subtracting the medians (60 observed and 97 expected): a median of paired differences answers a different question.
-
-Invoice-date filters apply only to repair/timing. Warehouse and condition filters select stock, since sold records lack warehouse information. Module, subtype, and search select the displayed population; the queue attaches full part history as described below.
+More detail: [quantity calculations](reports/metrics/METRICS_EXPLAINED.md), [repair economics](reports/metrics/REPAIR_ECONOMICS_EXPLAINED.md), and [timing](reports/metrics/TIMING_EXPLAINED.md).
 
 ## How the review queue works
 
-Stock and history are aggregated separately by part before joining, preventing transactions from being multiplied by stock-location rows.
+I chose a ranked review queue as the decision-support feature. It flags stocked parts with weak repair contribution or a high historical scrap share.
 
-| Rule | Default support | Trigger |
+| Rule | Minimum evidence | Flag |
 | --- | --- | --- |
-| Weak repair economics | At least five eligible positive-quantity sale records with usable amounts | Aggregate contribution margin below 20%, or zero revenue with negative contribution |
-| High observed scrap share | At least ten disposed units | Scrap share at least 50% |
+| Repair economics | Five positive-quantity sale records with usable amounts | Contribution margin below 20%, or zero revenue with negative contribution |
+| Scrap outcomes | Ten disposed units | Scrap share at least 50% |
 
-Thresholds are editable. Zero-revenue losses retain an unavailable percentage margin. Reported zero repair costs stay in the evidence, with coverage fields.
+These thresholds are editable. Stock and history are aggregated separately by part, so multiple stock locations do not multiply the historical transactions.
 
-**Review:** at least one supported rule triggers. **Insufficient evidence:** neither rule meets minimum support. **No rule triggered:** at least one rule has support but neither triggers. Neither of the latter statuses establishes low risk; inspect support for each rule.
+The default queue flags **123 parts**. Another **2,479 of the 2,957 stocked part numbers** do not meet either rule's evidence minimum. The app separates these from parts with enough evidence but no triggered rule. Neither status means low risk.
 
-Rank by triggered-rule count, then on-hand units descending, then part number. A small holding with two triggers can outrank a larger holding with one. This is reproducible inspection priority, not expected financial loss. The scrap minimum counts units: **a single bulk record can satisfy it**, without independent observations. Outcome-record counts are available in the full evidence export.
+The order is simple: triggered-rule count, then stock quantity, then part number. That means a small holding with two flags can rank above a much larger holding with one. Also, one bulk record can meet the ten-unit scrap minimum. These are limits of the rule, and the full evidence export includes historical record counts.
 
-Stock filters select locations; historical evidence uses all deduplicated records for those part numbers across locations/conditions, without an invoice-date window. It is not a condition-matched prediction. Confirm lot history, condition, cost coverage, and future quotes before acting.
+Stock filters select the locations of interest; the queue uses full history for those part numbers across conditions and locations, without a date window. A flag is a reason to inspect the part and its history before making a repair or scrap decision.
 
-## Verification
+## Screenshots
+
+All captures below use the supplied export. The app has category/search filters and CSV downloads; invoice-date filters apply to repair and timing. Warehouse and condition filters apply to stock.
+
+<details>
+<summary>Scrap</summary>
+
+Scrapped and sold units, observed shares, and the most frequently scrapped parts.
+
+![Scrap view](reports/screenshots/scrap.png)
+
+</details>
+
+<details>
+<summary>Repair economics</summary>
+
+Sales, repair costs, weak contributions, and cost coverage.
+
+![Repair economics view](reports/screenshots/repair-economics.png)
+
+</details>
+
+<details>
+<summary>Inventory and timing</summary>
+
+Stock breakdowns and observed-versus-expected sale intervals. The chart's 0–1,000-day focus does not change statistics or downloads.
+
+![Inventory view](reports/screenshots/inventory.png)
+
+![Timing view](reports/screenshots/timing.png)
+
+</details>
+
+<details>
+<summary>Review queue and data quality</summary>
+
+Editable review rules, part-level evidence, and the cleaning summary.
+
+![Review queue](reports/screenshots/review-queue.png)
+
+![Data quality](reports/screenshots/data-quality.png)
+
+</details>
+
+Additional captures: [mobile overview](reports/screenshots/overview-mobile.png) and [narrower desktop layout](reports/screenshots/repair-narrow-window.png). Wide tables scroll horizontally.
+
+## Checks and code
 
 After installation:
 
 ```sh
-# Rebuild audit and calculation reports from the unchanged source
+# Rebuild the audit and calculation reports
 .venv/bin/python -m src.metrics
 
-# Unit tests and Streamlit AppTest checks
+# Run unit tests and Streamlit AppTest checks
 .venv/bin/python -m unittest discover -s tests -v
 
-# Additional behavioral scenarios using the full supplied export
+# Exercise all views against the full export
 .venv/bin/python scripts/full_export_review.py
 ```
 
-The checked submission passed **65 tests with zero skips**, **31 full-export behavioral checks**, and a real Chrome sequence covering **39 checks, including 38 captured UI states**. Additional browser regressions reconciled filtered downloads and checked zero-revenue losses on replacement exports. Tests and full-export checks were rerun from the extracted ZIP. These are recorded results, not a guarantee for every export or operating system.
+The checked version passed **65 tests** and **31 full-export checks**. The Chrome review covered all six views, filters, and empty states. Additional browser checks reconciled downloaded totals and tested zero-revenue losses. See the [validation report](reports/VALIDATION.md) for scope, evidence, and browser commands.
 
-With the app running and Chrome installed, optional browser checks are available:
+`app.py` handles the UI. Under `src/`, ingestion and audit code prepare the records; separate modules calculate quantities, economics, timing, and review rules. Quantity aggregation uses SQLite. Financial calculations use Decimal, with float conversion limited to display.
 
-```sh
-./review_browser.sh
-.venv/bin/python scripts/browser_review_calculations.py
-.venv/bin/python scripts/browser_review_zero_revenue.py
-```
+## What I would do next
 
-`review_browser.sh` installs optional Playwright tooling and captures screens in a separate Chrome profile. Captures require visual inspection; the runner does not approve its own screenshots. Reconciliation scripts target the supplied export's known totals. See [validation scope and evidence](reports/VALIDATION.md).
+First, confirm the field definitions, duplicate policy, zero-cost meaning, and currency with the business. Then review the queue thresholds and ordering with an inventory manager.
 
-## Code map
+Receipt/snapshot dates, reliable lifecycle IDs, acquisition costs, future repair quotes, and scrap recovery values would make the app more useful. Without them, I left out current stock aging, a predictive scrap model, and automatic repair-or-scrap recommendations.
 
-| File | Responsibility |
-| --- | --- |
-| [`app.py`](app.py) | Views, filtering, caching, charts, downloads |
-| [`src/ingest.py`](src/ingest.py), [`src/clean.py`](src/clean.py) | Parsing, split reconstruction, normalization, flags |
-| [`src/audit.py`](src/audit.py) | Provenance, duplicates, quarantine, audit artifacts |
-| [`src/metrics.py`](src/metrics.py) | SQLite quantity aggregation and report-generation entry point |
-| [`src/economics.py`](src/economics.py) | Decimal contribution calculations and exceptions |
-| [`src/timing.py`](src/timing.py) | Intervals, paired comparisons, exclusions |
-| [`src/decision_support.py`](src/decision_support.py) | Independent stock/history aggregation and review rules |
-| [`src/presentation.py`](src/presentation.py) | Shared filters and precise CSV serialization |
-| [`tests/`](tests/) | Cleaning, calculation, rule, filtering, and app regressions |
+For a team deployment, I would add authentication, controlled uploads, and retained source/audit versions. I would also lock transitive dependencies and test more Python/OS combinations. The current launcher was checked on macOS; Windows instructions are provided but were not validated.
 
-Non-UI calculations use the standard library. pandas serves presentation; conversion to floating-point values is limited to display. Financial calculations and CSV evidence retain Decimal-based values.
+## AI use
 
-## Limits and next steps
+I used Codex throughout the project. I drove the direction and made the final decisions.
 
-Receipt dates, a stock snapshot date, scrap dates, reliable lifecycle identifiers, acquisition costs, future repair quotes, and recovery values are absent. This prevents current stock aging, matched lifecycle probabilities, and an economic repair-or-scrap recommendation. A predictive scrap model was omitted: observed outcomes alone do not establish a validated future-risk model.
-
-Before operational use, confirm duplicate authenticity, OH_DATE meaning, expected-day definitions, zero-cost semantics, and currency. Validate thresholds/ordering with an inventory manager, inspect bulk-lot dependence, and improve history coverage. Engineering follow-ups include locking transitive dependencies and testing more Python/OS combinations.
-
-For team deployment, use an internal authenticated host, controlled uploads, retained source/audit versions, and appropriate access to financial data. Hosting is not required for this submission.
-
-## AI assistance
-
-I used AI assistance extensively for inspection, planning, implementation, tests, browser automation, and documentation. Duplicate treatment and OH_DATE meaning are project assumptions, not verified company definitions. Reproducible checks establish implemented behavior; they do not validate business meanings or the ranking's operational usefulness.
-
-I remain responsible for the submitted code and assumptions. The main decisions to discuss are split-row recovery, deduplication before normalization, signed extended amounts, the scrap denominator, the OH_DATE proxy, and the queue's support and ordering tradeoffs.
+For a shorter submission overview, see [submission notes](docs/SUBMISSION.md).

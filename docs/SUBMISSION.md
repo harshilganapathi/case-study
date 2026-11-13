@@ -36,4 +36,4 @@ Receipt/snapshot/scrap dates, reliable lifecycle identifiers, acquisition costs,
 
 ## AI use
 
-I used AI extensively for inspection, planning, implementation, tests, browser automation, and documentation. Duplicate treatment and OH_DATE meaning remain assumptions, not verified company definitions. Reproducible checks establish behavior; I remain responsible for explaining the code and its limits.
+I used Codex throughout the project. I drove the direction and made the final decisions.
